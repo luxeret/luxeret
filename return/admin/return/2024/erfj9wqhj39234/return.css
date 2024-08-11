@@ -5094,7 +5094,7 @@ color: #ffffff;}
 }
 
 
-
+/* 완성시 지울것 필수 */
 
 .mobile-message {
   display: none;
@@ -5104,7 +5104,7 @@ color: #ffffff;}
   display: block;
 }
 
-/* 모바일 기기에서 페이지 내용을 숨기고 모바일 메시지를 표시 */
+
 @media (max-width: 768px) {
   .content {
       display: none;
