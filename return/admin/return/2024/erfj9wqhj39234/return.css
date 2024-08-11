@@ -24,26 +24,59 @@ html {
 }
 
 .banner video {
-width: 100%;
-height: 100%;
-object-fit: cover;
-position: absolute;
-top: 0;
-left: 0;
-z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .banner-text {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-color: white;
-font-size: 2.5rem;
-text-align: center;
-font-weight: bold;
-line-height: 1.5;
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.5;
 }
+
+.scroll-down {
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.scroll-down svg {
+  width: 48px;
+  height: 48px;
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.scroll-down svg:hover {
+  transform: translateY(5px); 
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0); /* 원래 위치로 돌아오기 */
+  }
+  50% {
+      transform: translateY(-10px); /* 위로 이동 */
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 
 @media (max-width: 600px) {
 .banner-text {
