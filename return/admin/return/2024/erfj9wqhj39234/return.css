@@ -5093,3 +5093,28 @@ color: #ffffff;}
   }
 }
 
+
+
+
+.mobile-message {
+  display: none;
+}
+
+.content {
+  display: block;
+}
+
+/* 모바일 기기에서 페이지 내용을 숨기고 모바일 메시지를 표시 */
+@media (max-width: 768px) {
+  .content {
+      display: none;
+  }
+
+  .mobile-message {
+      display: block;
+      text-align: center;
+      padding: 50px;
+      background-color: #f8d7da;
+      color: #721c24;
+  }
+}
