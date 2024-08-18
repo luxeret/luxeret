@@ -11,6 +11,24 @@
           window.location.href = "https://luxeret.com/return/admin/return/m";
         }
       </script>
+
+<script>
+    (function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      var mobileRegex = /Mobi|Android|iPhone|iPad|iPod/i;
+  
+      // 현재 URL을 가져옵니다.
+      var currentUrl = window.location.href;
+  
+      // 모바일 장치가 아닌 경우
+      if (!mobileRegex.test(userAgent)) {
+        if (currentUrl.includes("/return/admin/return/m")) {
+          // PC에서 /return/admin/return/m으로 접근할 때 모바일 URL로 리디렉션
+          window.location.href = "https://luxeret.com/return/admin/return/";
+        }
+      }
+    })();
+  </script>
       
     <body class="body">
         <div class="navbar">
@@ -62,9 +80,9 @@
                     불편한 부분들을 <br>편리하게 바꿉니다 
                     <div class="scroll-down">
                         <a href="#service">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                                <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-mouse" viewBox="0 0 16 16">
+                                <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3m4 8a4 4 0 0 1-8 0V5a4 4 0 1 1 8 0zM8 0a5 5 0 0 0-5 5v6a5 5 0 0 0 10 0V5a5 5 0 0 0-5-5"/>
+                              </svg>
                         </a>
                     </div>
                 </div>

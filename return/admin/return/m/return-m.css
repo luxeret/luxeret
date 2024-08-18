@@ -2132,14 +2132,7 @@ figcaption {
   margin-top: 5px;
 }
 
-.navbar {
-  z-index: 1001;
-  width: 100%;
-  margin-top: 40px;
-  margin-bottom: 100px;
-  position: fixed;
-  top: 0;
-}
+
 
 .container {
   width: 100%;
@@ -2152,19 +2145,8 @@ figcaption {
   position: relative;
 }
 
-.navbar-wrapper {
-  background-color: #2b2b2b;
-  border: 1px solid #ececec;
-  border-radius: 80px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 40px;
-  display: flex;
-}
 
-.navbar-brand {
-  display: flex;
-}
+
 
 .nav-menu {
   grid-column-gap: 20px;
@@ -2279,9 +2261,7 @@ figcaption {
   background-color: var(--white-hover);
 }
 
-.navbar-inner {
-  background-color: var(--transparent);
-}
+
 
 .dot {
   background-color: #fff;
@@ -3467,14 +3447,7 @@ color: #ffffff;}
   margin-top: 10px;
 }
 
-.additional-info-header {
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
-  flex-flow: column;
-  align-items: flex-start;
-  max-width: 250px;
-  display: flex;
-}
+
 
 .project-title {
   font-size: 26px;
@@ -3487,10 +3460,7 @@ color: #ffffff;}
   overflow: hidden;
 }
 
-.page-header {
-  padding-top: 240px;
-  overflow: hidden;
-}
+
 
 .display-4 {
   grid-column-gap: 12px;
@@ -3959,16 +3929,7 @@ color: #ffffff;}
   padding: 20px 25px 10px;
 }
 
-.accordion-item-header {
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  cursor: pointer;
-  border-radius: 8px;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  display: flex;
-}
+
 
 .arrow {
   border: 1px solid var(--dark);
@@ -4480,49 +4441,6 @@ color: #ffffff;}
     padding: 0;
   }
 
-  .menu-button.w--open {
-    color: #60697b;
-    background-color: rgba(0, 0, 0, 0);
-  }
-
-  .burger {
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    background-color: #fff;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 38px;
-    height: 38px;
-    padding-bottom: 2px;
-    display: flex;
-  }
-
-  .navbar-other {
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    display: flex;
-  }
-
-  .dropdown-mobile {
-    flex-flow: column;
-    align-items: flex-start;
-    display: block;
-  }
-
-  .dropdown-icon {
-    margin-top: 1px;
-  }
-
-  .dropdown-list-mobile {
-    font-weight: 500;
-  }
-
-  .dropdown-list-mobile.w--open {
-    border-left: 1px solid var(--dark);
-    margin-top: 15px;
-    margin-left: 2px;
-  }
 
   .divide-desktop {
     display: none;
@@ -4573,13 +4491,7 @@ color: #ffffff;}
     display: flex;
   }
 
-  .additional-info-header {
-    max-width: none;
-  }
 
-  .page-header {
-    padding-top: 230px;
-  }
 
   .portfolio-headline {
     margin-bottom: 60px;
@@ -4700,9 +4612,7 @@ color: #ffffff;}
     line-height: 36px;
   }
 
-  .navbar-brand {
-    padding-left: 0;
-  }
+
 
   .sg-section {
     grid-row-gap: 40px;
@@ -4837,9 +4747,7 @@ color: #ffffff;}
     line-height: 34px;
   }
 
-  .page-header {
-    padding-top: 200px;
-  }
+
 
   .display-4 {
     font-size: 38px;
@@ -4881,19 +4789,14 @@ color: #ffffff;}
 }
 
 @media screen and (max-width: 479px) {
-  .navbar {
-    margin-top: 20px;
-  }
+
+
 
   .container {
     padding-left: 20px;
     padding-right: 20px;
   }
 
-  .navbar-wrapper {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
 
   .nav-menu-wrapper {
     margin-left: 50px;
@@ -5121,3 +5024,73 @@ color: #ffffff;}
 
 
 * { box-sizing: border-box; margin: 0; padding: 0; max-width: 100%; }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #131313;
+  color: white;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+  display: none; /* 기본적으로 숨김 */
+}
+
+.nav-menu {
+  display: flex;
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-left: 20px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  pointer-events: auto; /* 링크 클릭 가능 */
+}
+
+/* 모바일 스타일 */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* 모바일에서 햄버거 아이콘 보임 */
+  }
+  
+  .nav-menu {
+    display: none; /* 기본적으로 메뉴 숨김 */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* 메뉴가 다른 요소 위에 표시되도록 설정 */
+  }
+
+  .nav-menu.show {
+    display: flex; /* 클래스가 추가되면 보이도록 설정 */
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+}
