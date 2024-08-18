@@ -5144,3 +5144,22 @@ color: #ffffff;}
   }
 }
 
+
+.footer {
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.footer-link {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
