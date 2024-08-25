@@ -38,6 +38,48 @@
 
 
 
+.responsive-image {
+  width: 100%;            
+  height: auto;             
+  max-width: 700px; /* 이미지 최대 너비 증가 */
+  margin-bottom: 30px; /* 아래 여백 증가 */
+  border-radius: 20px; /* 모서리 반경 증가 */
+}
+
+.container24 {
+  text-align: center;
+  padding: 20px; /* 컨테이너 안쪽 여백 추가 */
+}
+
+.section {
+  margin-bottom: 80px; /* 아래 여백 증가 */
+}
+
+.title {
+  font-size: 60px; /* 제목 폰트 크기 증가 */
+  font-weight: bold;
+  color: #b0b0b0;
+  margin-bottom: 20px; /* 아래 여백 증가 */
+}
+
+.main-text {
+  font-size: 50px; /* 주요 텍스트 폰트 크기 증가 */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 25px; /* 아래 여백 증가 */
+  font-family: NanumSquareNeoHeavy;
+}
+
+.sub-text {
+  font-size: 20px; /* 부가 텍스트 폰트 크기 증가 */
+  color: #b0b0b0;
+  max-width: 800px; /* 최대 너비 증가 */
+  margin: 0 auto;
+}
+
+
+
+
 
 
 
@@ -1093,6 +1135,7 @@ html{font-family:NanumSquareNeoExtraBold;-ms-text-size-adjust:100%;-webkit-text-
      -webkit-align-items: center;
      -ms-flex-align: center;
      align-items: center;
+     
    }
    
    .roadmap-left-column {
@@ -1954,26 +1997,37 @@ a {
 
 
 
-
-footer {
-  background-color: #333;
-  color: #fff;
+.footer {
+  background-color: #f9f9f9;
+  padding: 20px 0;
+  border-top: 1px solid #e1e1e1;
   text-align: center;
-  padding: 20px;
-}
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-.footer-container span,
-.footer-container a {
-  margin: 5px;
-  color: #fff;
-  text-decoration: none;
   font-size: 14px;
+  color: #555;
+  font-family:NanumSquareNeoHeavy;
 }
-.footer-container a:hover {
+.footer .info {
+  margin-bottom: 10px;
+}
+.footer .info span {
+  margin-right: 15px;
+}
+.footer .info a {
+  color: #555;
+  text-decoration: none;
+}
+.footer .info a:hover {
   text-decoration: underline;
 }
+.footer .copyright {
+  margin: 20px 0;
+}
+.footer .links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #555;
+}
+.footer .links a:hover {
+  text-decoration: underline;
+}
+
