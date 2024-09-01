@@ -78,61 +78,45 @@
         }
     </style>
 
+
     <div class="banner">
-        <video autoplay loop muted playsinline>
-            <source src="https://ifh.cc/v/XP3FxC.mp4" type="video/mp4"/>
+        <video autoplay loop muted playsinline id="myVideo">
+            <source src="https://ifh.cc/v/sd1NAY.mp4" type="video/mp4"/>
         </video>
         <div class="banner-text">
             Challenge and <br>dive into various businesses
-            <div class="scroll-down">
-                <a href="#about">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                        <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
-                    </svg>
-                </a>
-            </div>
+        </div>
+        <div class="video-controls" id="videoControl">
+            <button class="play-pause" onclick="togglePlayPause()">Ⅱ</button>
         </div>
     </div>
-
-    <script>
-        document.querySelector('.scroll-down a').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
-        });
-        </script>
-
-    <div id="2024-luxeret-47398" class="section luxeret-section">
-        <div class="container w-container">
-            <div id="about">
-                <div class="section no-paddings luxeret-section">
-                    <div class="container no-padding-on-mobile w-container">
-                        <div data-w-id="4d17244d-6614-4303-6a7f-ffc5182cd88d" style="opacity:0" class="black-box">
-                            <div class="black-box-contenter">
-                                <img src="https://ifh.cc/g/xJzBAr.jpg" alt="인사-이미지" class="black-box-image"/>
-                                <div class="black-box-content">
-                                    <h3 class="no-top-margin">LUXERET About 🦖</h3>
-                                    <p>LUXERET is a company that is running hard today for various businesses and a better Korea. <br> Find out what LUXERET does below!</p>
-                                    <p id="kst-time"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+       
+    
+    <p>ㅤ</p>
+    
+    
+    
+            <div class="icon-grid">
+                <a href="https://luxeret.com/service/airs/" class="icon-item">
+                    <img src="https://ifh.cc/g/48H9HP.png" alt="에어스쉴드">
+                    <p>AIRSHIELD</p>
+                </a>
+                <a href="https://luxeret.shop" class="icon-item">
+                    <img src="https://ifh.cc/g/8Ssrm3.png" alt="룩세렛 스토어">
+                    <p>LUXERET SHOP</p>
+                </a>
+                <a href="https://luxeret.com/reviews" class="icon-item">
+                    <img src="https://ifh.cc/g/T553zw.png" alt="생생한 후기">
+                    <p>Reviews</p>
+                </a>
+                <a href="https://luxeret.channel.io" class="icon-item">
+                    <img src="https://ifh.cc/g/ZFpfXw.png" alt="비즈니스 문의">
+                    <p>Business</p>
+                </a>
             </div>
+        </section>
 
-            <script>
-                function updateKSTTime() {
-                    var now = new Date();
-                    var kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-                    var hours = String(kstTime.getUTCHours()).padStart(2, '0');
-                    var minutes = String(kstTime.getUTCMinutes()).padStart(2, '0');
-                    var seconds = String(kstTime.getUTCSeconds()).padStart(2, '0');
-                    var formattedTime = hours + ':' + minutes + ':' + seconds;
-                    document.getElementById('kst-time').textContent = 'KOREA: ' + formattedTime;
-                }
-                setInterval(updateKSTTime, 1000);
-                updateKSTTime();
-            </script>
+
 
 <body>
     <div class="container24">
