@@ -41,13 +41,18 @@ Webflow.require('ix2').init(
 );
 
 
-document.getElementById('signupButton').addEventListener('click', function() {
-    window.location.href = 'https://example.com/signup'; 
-});
-document.getElementById('signupButto').addEventListener('click', function() {
-    window.location.href = 'https://example.com/signup'; 
-});
+function togglePlayPause() {
+    var video = document.getElementById("myVideo");
+    var button = document.querySelector(".play-pause");
+    
+    if (video.paused) {
+      video.play();
+      button.textContent = "Ⅱ"; // 비디오가 재생 중일 때 아이콘
+    } else {
+      video.pause();
+      button.textContent = "▶"; // 비디오가 멈춤일 때 아이콘
+    }
+  }
+  
 
-document.getElementById('signupButt').addEventListener('click', function() {
-    window.location.href = 'https://luxeret.channel.io'; 
-});
+

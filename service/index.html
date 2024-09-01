@@ -27,7 +27,7 @@
                 </a>
                 <nav role="navigation" class="nav-menu w-nav-menu">
                     <a href="https://luxeret.com/service" class="nav-link w-nav-link">서비스</a>
-                    <a href="#about" class="nav-link w-nav-link">회사소개</a>
+                    <a href="https://luxeret.com/#about" class="nav-link w-nav-link">회사소개</a>
                     <a href="https://luxeret.com/team" class="nav-link w-nav-link">인재영입</a>
                     <a href="https://luxeret.com/news" class="nav-link w-nav-link">뉴스룸</a>
                     <div class="social-links-wrap">
@@ -81,37 +81,18 @@
 
 
 
-    <div class="banner">
-        <video autoplay loop muted playsinline>
-            <source src="https://ifh.cc/v/ghrgm3.mp4" type="video/mp4"/>
-        </video>
-        <div class="banner-text">
-            지금 룩세렛에 <br> 서비스를 만나보세요
-            <div class="scroll-down">
-                <a href="#service">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                        <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
-                    </svg>
-                </a>
+            <div class="banner">
+                <video autoplay loop muted playsinline id="myVideo">
+                    <source src="https://ifh.cc/v/ghrgm3.mp4" type="video/mp4"/>
+                </video>
+                <div class="banner-text">
+                    지금 룩세렛에 <br> 서비스를 만나보세요
+                </div>
+                <div class="video-controls" id="videoControl">
+                    <button class="play-pause" onclick="togglePlayPause()">Ⅱ</button>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <script>
-        document.querySelector('.scroll-down a').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.querySelector('#service').scrollIntoView({ behavior: 'smooth' });
-        });
-        </script>
-
-
-
-
-         
-
-            
-
-    <div id="service">
 
          
 
