@@ -35,7 +35,93 @@
 }
 
 
+.container1 {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 60px 20px;
+}
 
+.section-title {
+font-size: 36px;
+font-weight: 700;
+text-align: center;
+margin-bottom: 20px;
+}
+
+.section-subtitle {
+font-size: 18px;
+color: #777;
+text-align: center;
+margin-bottom: 40px;
+}
+
+.content-wrapper {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+}
+
+.about-image img {
+width: 100%;
+height: auto;
+border-radius: 10px;
+}
+
+.about-content {
+max-width: 600px;
+}
+
+.about-content h3 {
+font-size: 28px;
+margin-top: 0;
+margin-bottom: 15px;
+}
+
+.about-content p {
+font-size: 16px;
+line-height: 1.6;
+color: #555;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+.content-wrapper {
+  flex-direction: column;
+  text-align: center;
+}
+
+.about-content {
+  margin-top: 30px;
+}
+
+.about-content h3 {
+  font-size: 24px;
+}
+
+.about-content p {
+  font-size: 15px;
+}
+}
+
+@media (max-width: 480px) {
+.section-title {
+  font-size: 28px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+}
+
+.about-content h3 {
+  font-size: 22px;
+}
+
+.about-content p {
+  font-size: 14px;
+}
+}
 
 
 .responsive-image {
@@ -44,6 +130,12 @@ height: auto;
 max-width: 700px; 
 margin-bottom: 30px;
 border-radius: 20px;
+}
+
+@media (min-width: 1024px) {
+.responsive-image {
+  max-width: 900px; 
+}
 }
 
 .container24 {
@@ -1979,12 +2071,24 @@ text-decoration: underline;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .banner {
 position: relative;
 width: 100%;
 height: 100vh;
 overflow: hidden;
-animation: shrinkVideo 5s ease forwards;
+animation: shrinkVideo 3s ease forwards;
 border-radius: 20px;
 }
 
@@ -2016,7 +2120,7 @@ z-index: 1;
 
 .video-controls {
 position: absolute;
-bottom: 20px; /* 버튼을 아래로 이동 */
+bottom: 15px; /* 버튼을 아래로 이동 */
 right: 20px; /* 버튼을 오른쪽으로 이동 */
 z-index: 2;
 }
@@ -2072,71 +2176,93 @@ background-color: rgba(0, 0, 0, 0.7);
 
 
 
-.icon-grid {
-display: flex;
-gap: 20px;
-overflow-x: auto;
-scroll-snap-type: x mandatory;
-padding: 10px;
-max-width: 100%;
+
+
+
+
+
+
+
+
+
+.menu-container {
+width: 80%;
 margin: 0 auto;
--webkit-overflow-scrolling: touch;
-scrollbar-width: none;
--ms-overflow-style: none;
+padding: 20px 0;
+text-align: center;
+top: 0;
 }
 
-.icon-grid::-webkit-scrollbar {
+.menu-container p {
+font-size: 32px;
+font-weight: bold;
+margin-bottom: 15px;
+}
+
+.menu-options {
+display: flex;
+justify-content: center;
+gap: 15px;
+flex-wrap: nowrap;
+overflow-x: auto;
+overflow-y: hidden;
+scroll-snap-type: x mandatory;
+-webkit-overflow-scrolling: touch;
+padding: 10px 0;
+max-width: 100%;
+}
+
+.menu-options::-webkit-scrollbar {
 display: none;
 }
 
-.icon-item {
-flex: 0 0 auto;
-width: 120px;
-background-color: rgb(248, 248, 248);
-border-radius: 10px;
-padding: 15px;
-text-align: center;
-box-shadow: 0 4px 6px rgba(7, 7, 7, 0.1);
-transition: transform 0.3s ease;
-scroll-snap-align: start;
+.menu-option {
+background-color: white;
+border: 2px solid #dbdbdb;
+border-radius: 20px; 
+padding: 10px 20px;
+font-size: 18px;
+text-decoration: none;
+color: inherit;
+transition: background-color 0.3s, color 0.3s;
+white-space: nowrap;
 }
 
-.icon-item:hover {
-transform: translateY(-10px);
+@media (max-width: 768px) {
+.menu-container {
+  width: 90%;
 }
 
-.icon-item img {
-width: 60px;
-height: auto;
-margin-bottom: 10px;
+.menu-container p {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-.icon-item p {
-margin: 0;
-font-size: 14px;
-color: #333;
+.menu-options {
+  flex-direction: row;
+  justify-content: flex-start;
+}
 }
 
-@media (min-width: 769px) {
-.icon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 30px;
-  padding: 20px;
-  overflow-x: hidden;
+
+.news-more {
+  text-align: center;
+  margin-top: -30px;
 }
 
-.icon-item {
-  width: 300px;
-  max-width: 300px;
-  padding: 20px;
+.news-more a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-.icon-item img {
-  width: 90px;
+.news-more a:hover {
+  background-color: #0056b3;
 }
 
-.icon-item p {
-  font-size: 16px;
-}
-}
