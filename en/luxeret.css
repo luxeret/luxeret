@@ -2244,7 +2244,9 @@ white-space: nowrap;
 }
 }
 
-
+a {
+  text-decoration: none !important;
+}
 .news-more {
   text-align: center;
   margin-top: -30px;
@@ -2266,3 +2268,34 @@ white-space: nowrap;
   background-color: #0056b3;
 }
 
+@media (max-width: 768px) {
+  .footer {
+      padding: 15px 10px;
+      font-size: 12px;
+      text-align: center; /* 모든 텍스트 가운데 정렬 */
+      word-wrap: break-word; /* 긴 텍스트 줄바꿈 처리 */
+  }
+
+  .footer .info {
+      margin-bottom: 15px;
+  }
+
+  .footer .info span {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 5px;
+  }
+
+  .footer .links a {
+      display: inline-block;
+      margin: 5px;
+      font-size: 12px;
+      word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
+  }
+
+  .footer .copyright {
+      margin: 10px 0;
+      font-size: 12px;
+      word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
+  }
+}

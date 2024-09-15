@@ -1973,6 +1973,38 @@ text-decoration: underline;
 }
 
 
+@media (max-width: 768px) {
+  .footer {
+      padding: 15px 10px;
+      font-size: 12px;
+      text-align: center; /* 모든 텍스트 가운데 정렬 */
+      word-wrap: break-word; /* 긴 텍스트 줄바꿈 처리 */
+  }
+
+  .footer .info {
+      margin-bottom: 15px;
+  }
+
+  .footer .info span {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 5px;
+  }
+
+  .footer .links a {
+      display: inline-block;
+      margin: 5px;
+      font-size: 12px;
+      word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
+  }
+
+  .footer .copyright {
+      margin: 10px 0;
+      font-size: 12px;
+      word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
+  }
+}
+
 
 
 
@@ -2139,4 +2171,69 @@ color: #333;
 .icon-item p {
   font-size: 16px;
 }
+
+a {
+  text-decoration: none !important;
+}
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.button1 {
+  background-color: #d3d3d3;
+  border: none;
+  padding: 15px 30px;
+  width: 80%;
+  max-width: 1200px;
+  text-align: left;
+  font-size: 18px;
+  margin: 10px 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  color: black;
+}
+.button1:hover {
+  background-color: #c0c0c0;
+}
+.arrow {
+  font-size: 20px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination div {
+  width: 30px;
+  height: 30px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.pagination div:hover {
+  background-color: #c0c0c0;
+}
+
+@media screen and (max-width: 768px) {
+  .button1 {
+      font-size: 16px;
+      padding: 15px 20px;
+  }
+  .arrow {
+      font-size: 18px;
+  }
 }
