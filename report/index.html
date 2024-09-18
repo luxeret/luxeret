@@ -79,15 +79,13 @@ document.getElementById('reportForm').addEventListener('submit', function(event)
     event.preventDefault();
 
     const lastSubmitTime = parseInt(localStorage.getItem('lastSubmitTime'), 10);
-const now = Date.now();
-const cooldownPeriod = 3 * 60 * 1000; // 3분 (180,000 밀리초)
+    const now = Date.now();
+    const cooldownPeriod = 3 * 60 * 1000; // 3분 (180,000 밀리초)
 
-if (lastSubmitTime && (now - lastSubmitTime < cooldownPeriod)) {
-    alert('신고 제출은 3분 간격으로 가능합니다. 잠시 후 다시 시도해주세요.');
-    return;
-}
-
-
+    if (lastSubmitTime && (now - lastSubmitTime < cooldownPeriod)) {
+        alert('신고 제출은 3분 간격으로 가능합니다. 잠시 후 다시 시도해주세요.');
+        return;
+    }
 
     const category = document.getElementById('category').value;
     const name = document.getElementById('name').value;
@@ -96,7 +94,6 @@ if (lastSubmitTime && (now - lastSubmitTime < cooldownPeriod)) {
     const details = document.getElementById('details').value;
     const imageLink = document.getElementById('imageLink').value;
 
-    
     let extraDetails = '';
     if (category === '저작권 또는 상표권 침해 ✨') {
         const relationship = document.getElementById('relationship').value;
@@ -106,13 +103,23 @@ if (lastSubmitTime && (now - lastSubmitTime < cooldownPeriod)) {
         extraDetails = `스팸 정보: ${spamDetails || '없음'}`;
     }
 
-    const webhookUrl = 'https://discord.com/api/webhooks/1285896273945432064/L-gYMhzQ6270scQHi-je7dR3smKxy6yeko2PQT6c4wHSCc9Pkd23cQnK2qUCP__sL3u1';
+    // 웹훅 URL 리스트
+    const webhookUrls = [
+        'https://discord.com/api/webhooks/1285896273945432064/L-gYMhzQ6270scQHi-je7dR3smKxy6yeko2PQT6c4wHSCc9Pkd23cQnK2qUCP__sL3u1',
+        'https://discord.com/api/webhooks/1285964913486856334/jzVdgaMc3ivJmobMgpCwjtABYtbu8e-yWmo9KCI7baP8EqFHmsBcO7mgSNConqTr7ssA',
+        'https://discord.com/api/webhooks/1285965174163116075/oLwDwYHIt2wQIAAxMwIUEwUG-NxCJ9lpx2RxF8IHcNAfmd-LIwIWKEAcOHaa3K205V4i',
+        'https://discord.com/api/webhooks/1285965362227052618/kE2UQ3uohXfRLuxlKesYZL1G0s2FuF5qq_mo7AESEoy641GqBHmmZACCHpQEqBCr9mMc',
+        'https://discord.com/api/webhooks/1285965685843034220/iX2OCnn69Rx4bPVFA-nvv6OlhW7JKnfM7a9wr_HGKkTJ6crRjehEcI9ixvsPfVj6gxvH'
+    ];
+
+    // 랜덤하게 URL 선택
+    const randomWebhookUrl = webhookUrls[Math.floor(Math.random() * webhookUrls.length)];
 
     const message = {
         content: `신고 카테고리: ${category || '없음'}\n성함: ${name || '없음'}\n연락처: ${phone || '없음'}\n이메일: ${email || '없음'}\n상세내용: ${details || '없음'}\n증빙자료 링크: ${imageLink || '없음'}\n${extraDetails}`
     };
 
-    fetch(webhookUrl, {
+    fetch(randomWebhookUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -124,7 +131,7 @@ if (lastSubmitTime && (now - lastSubmitTime < cooldownPeriod)) {
             alert('신고가 접수되었습니다 - 3일 이내 회신 예정');
             localStorage.setItem('lastSubmitTime', now);
         } else {
-            alert('신고 접수중 오류가 발생했습니다 - 지속적 발생시 고객센터 문의');
+            alert('신고 접수 중 오류가 발생했습니다 - 지속적 발생 시 고객센터 문의');
         }
     })
     .catch(error => {
@@ -152,8 +159,6 @@ document.getElementById('category').addEventListener('change', function() {
     }
 });
 </script>
-</body>
-</html>
 
 <div class="footer">
     <div class="info">
