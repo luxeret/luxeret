@@ -27,9 +27,9 @@
         <label for="category">신고 카테고리</label>
         <select id="category" name="category" required>
             <option value="" disabled selected>카테고리를 선택해주세요</option>
-            <option value="category1">저작권 또는 상표권 침해 ✨</option>
-            <option value="category2">사칭 또는 스팸 🗝️</option>
-            <option value="category3">기타 🏷️</option>
+            <option value="저작권 또는 상표권 침해 ✨">저작권 또는 상표권 침해 ✨</option>
+            <option value="사칭 또는 스팸 🗝️">사칭 또는 스팸 🗝️</option>
+            <option value="기타 🏷️">기타 🏷️</option>
         </select>
         <span class="error-message" id="category-error"></span>
 
@@ -37,8 +37,8 @@
             <label for="relationship">저작자와 관계</label>
             <select id="relationship" name="relationship" required>
                 <option value="" disabled selected>관계를 선택해주세요</option>
-                <option value="self">본인</option>
-                <option value="representative">대리인</option>
+                <option value="본인">본인</option>
+                <option value="대리인">대리인</option>
             </select>
             <span class="error-message" id="relationship-error"></span>
         </div>
@@ -79,13 +79,15 @@ document.getElementById('reportForm').addEventListener('submit', function(event)
     event.preventDefault();
 
     const lastSubmitTime = parseInt(localStorage.getItem('lastSubmitTime'), 10);
-    const now = Date.now();
-    const cooldownPeriod = 10 * 60 * 1000; // 10 minutes in milliseconds
+const now = Date.now();
+const cooldownPeriod = 3 * 60 * 1000; // 3분 (180,000 밀리초)
 
-    if (lastSubmitTime && (now - lastSubmitTime < cooldownPeriod)) {
-        alert('신고 제출은 10분 간격으로 가능합니다. 잠시 후 다시 시도해주세요.');
-        return;
-    }
+if (lastSubmitTime && (now - lastSubmitTime < cooldownPeriod)) {
+    alert('신고 제출은 3분 간격으로 가능합니다. 잠시 후 다시 시도해주세요.');
+    return;
+}
+
+
 
     const category = document.getElementById('category').value;
     const name = document.getElementById('name').value;
@@ -94,10 +96,20 @@ document.getElementById('reportForm').addEventListener('submit', function(event)
     const details = document.getElementById('details').value;
     const imageLink = document.getElementById('imageLink').value;
 
+    
+    let extraDetails = '';
+    if (category === '저작권 또는 상표권 침해 ✨') {
+        const relationship = document.getElementById('relationship').value;
+        extraDetails = `저작자와 관계: ${relationship || '없음'}`;
+    } else if (category === '사칭 또는 스팸 🗝️') {
+        const spamDetails = document.getElementById('spamDetails').value;
+        extraDetails = `스팸 정보: ${spamDetails || '없음'}`;
+    }
+
     const webhookUrl = 'https://discord.com/api/webhooks/1285896273945432064/L-gYMhzQ6270scQHi-je7dR3smKxy6yeko2PQT6c4wHSCc9Pkd23cQnK2qUCP__sL3u1';
 
     const message = {
-        content: `카테고리: ${category}\n성함: ${name}\n연락처: ${phone}\n이메일: ${email}\n상세내용: ${details}\n이미지 링크: ${imageLink || '없음'}`
+        content: `신고 카테고리: ${category || '없음'}\n성함: ${name || '없음'}\n연락처: ${phone || '없음'}\n이메일: ${email || '없음'}\n상세내용: ${details || '없음'}\n증빙자료 링크: ${imageLink || '없음'}\n${extraDetails}`
     };
 
     fetch(webhookUrl, {
@@ -122,25 +134,23 @@ document.getElementById('reportForm').addEventListener('submit', function(event)
 });
 
 document.getElementById('category').addEventListener('change', function() {
-            const category1Section = document.getElementById('category1-section');
-            const category2Section = document.getElementById('category2-section');
+    const category1Section = document.getElementById('category1-section');
+    const category2Section = document.getElementById('category2-section');
 
-            category1Section.style.display = 'none';
-            category2Section.style.display = 'none';
+    category1Section.style.display = 'none';
+    category2Section.style.display = 'none';
 
-            switch (this.value) {
-                case 'category1':
-                    category1Section.style.display = 'block';
-                    break;
-                case 'category2':
-                    category2Section.style.display = 'block';
-                    break;
-                case 'category3':
-                    // No additional sections needed
-                    break;
-            }
-        });
-
+    switch (this.value) {
+        case '저작권 또는 상표권 침해 ✨':
+            category1Section.style.display = 'block';
+            break;
+        case '사칭 또는 스팸 🗝️':
+            category2Section.style.display = 'block';
+            break;
+        case '기타 🏷️':
+            break;
+    }
+});
 </script>
 </body>
 </html>
