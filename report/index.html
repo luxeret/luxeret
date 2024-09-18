@@ -2,10 +2,10 @@
 <html data-wf-domain="luxeret.com" data-wf-page="luxeret-4873" data-wf-site="luxeret-4870">
 <head>
     <meta charset="utf-8"/>
-    <title>룩세렛 - 신고센터</title>
-    <meta content="룩세렛 - 가치에 가치를 더하다" property="og:title"/>
+    <title>룩세렛ㅣ신고센터</title>
+    <meta content="룩세렛ㅣ신고센터 - 가치에 가치를 더하다" property="og:title"/>
     <meta content="https://ifh.cc/g/CokABr.jpg" property="og:image"/>
-    <meta content="룩세렛 - 가치에 가치를 더하다" property="twitter:title"/>
+    <meta content="룩세렛ㅣ신고센터 - 가치에 가치를 더하다" property="twitter:title"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link href="luxeret-r.css" rel="stylesheet" type="text/css"/>
     <meta name="naver-site-verification" content="483992bf4f969c4ad1b7b46d46bccc6257d5c97b" />
@@ -27,11 +27,27 @@
         <label for="category">신고 카테고리</label>
         <select id="category" name="category" required>
             <option value="" disabled selected>카테고리를 선택해주세요</option>
-            <option value="category1">카테고리 1</option>
-            <option value="category2">카테고리 2</option>
-            <option value="category3">카테고리 3</option>
+            <option value="category1">저작권 또는 상표권 침해 ✨</option>
+            <option value="category2">사칭 또는 스팸 🗝️</option>
+            <option value="category3">기타 🏷️</option>
         </select>
         <span class="error-message" id="category-error"></span>
+
+        <div class="category-section" id="category1-section">
+            <label for="relationship">저작자와 관계</label>
+            <select id="relationship" name="relationship" required>
+                <option value="" disabled selected>관계를 선택해주세요</option>
+                <option value="self">본인</option>
+                <option value="representative">대리인</option>
+            </select>
+            <span class="error-message" id="relationship-error"></span>
+        </div>
+
+        <div class="category-section" id="category2-section">
+            <label for="spamDetails">스팸 정보</label>
+            <textarea id="spamDetails" name="spamDetails" placeholder="스팸 내용및 (연락처, 이메일)등을 입력해주세요" required></textarea>
+            <span class="error-message" id="spamDetails-error"></span>
+        </div>
 
         <label for="name">성함</label>
         <input type="text" id="name" name="name" placeholder="성함을 입력해주세요" required>
@@ -45,7 +61,6 @@
         <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요" required>
         <span class="error-message" id="email-error"></span>
 
-
         <label for="details">상세내용</label>
         <textarea id="details" name="details" placeholder="상세내용을 입력해주세요" required></textarea>
         <span class="error-message" id="details-error"></span>
@@ -56,7 +71,6 @@
 
         <button type="submit">신고 제출</button>
         <input type="hidden" id="lastSubmitTime" name="lastSubmitTime" value="">
-
     </form>
 </div>
 
@@ -106,6 +120,26 @@ document.getElementById('reportForm').addEventListener('submit', function(event)
         console.error('Error:', error);
     });
 });
+
+document.getElementById('category').addEventListener('change', function() {
+            const category1Section = document.getElementById('category1-section');
+            const category2Section = document.getElementById('category2-section');
+
+            category1Section.style.display = 'none';
+            category2Section.style.display = 'none';
+
+            switch (this.value) {
+                case 'category1':
+                    category1Section.style.display = 'block';
+                    break;
+                case 'category2':
+                    category2Section.style.display = 'block';
+                    break;
+                case 'category3':
+                    // No additional sections needed
+                    break;
+            }
+        });
 
 </script>
 </body>
