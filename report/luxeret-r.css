@@ -2355,6 +2355,7 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 20px; /* 기본 상단 여백 */
 }
 
 button:hover {
