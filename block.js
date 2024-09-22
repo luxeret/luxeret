@@ -1,4 +1,4 @@
-var blocklist = ["211.38.80.26"];
+var blocklist = ["아이피 등록"];
 
 $.ajax({
     "url" : "https://api.ip.pe.kr/json",
