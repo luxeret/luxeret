@@ -56,3 +56,8 @@ function togglePlayPause() {
   
 
 
+  document.addEventListener('mousemove', function (e) {
+    const cursor = document.querySelector('.custom-cursor');
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+});Console.log("");
