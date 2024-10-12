@@ -2176,3 +2176,20 @@ a {
       word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
   }
 }
+
+body {
+  cursor: none; /* 기본 커서 숨기기 */
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url('https://ifh.cc/g/d0o9zW.png'); /* 커스텀 휠 이미지 */
+  background-size: cover;
+  pointer-events: none; /* 클릭 이벤트 차단 */
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* 마우스를 모든 요소보다 앞에 위치시키기 */
+}
