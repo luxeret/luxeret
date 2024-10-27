@@ -42,7 +42,7 @@ a {
 
 
 body {
-  cursor: none; /* 기본 커서 숨기기 */
+  cursor: none;
 }
 
 .custom-cursor {
@@ -56,6 +56,13 @@ body {
   pointer-events: none; /* 클릭 이벤트 차단 */
   transform: translate(-50%, -50%);
   z-index: 9999; /* 마우스를 모든 요소보다 앞에 위치시키기 */
+}
+
+/* 모바일 환경에서 커스텀 커서 숨기기 */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
 }
 
 
