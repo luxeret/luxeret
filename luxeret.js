@@ -52,4 +52,36 @@
       }
     }
 
-    
+    // 로그인 성공 후 사용자 정보 처리 예시
+signInWithPopup(auth, provider)
+.then((result) => {
+  const user = result.user;
+  console.log("로그인한 사용자:", user);  // 사용자 정보 출력
+  console.log("이메일:", user.email);  // 이메일 정보 출력
+  console.log("이름:", user.displayName);  // 이름 정보 출력
+
+  // 추가적으로 _tokenResponse에서 Google 관련 정보를 확인
+  const tokenResponse = result._tokenResponse;
+  console.log("구글 이메일:", tokenResponse.email);
+  console.log("구글 이름:", tokenResponse.firstName);
+})
+.catch((error) => {
+  console.log("로그인 오류:", error);
+});
+
+
+const admin = require('firebase-admin');
+
+// Firebase Admin SDK 초기화
+admin.initializeApp();
+
+const checkAuth = async (idToken) => {
+try {
+  // ID Token을 검증하여 로그인 여부를 확인
+  const decodedToken = await admin.auth().verifyIdToken(idToken);
+  const uid = decodedToken.uid;
+  return uid;  // 로그인된 사용자의 UID 반환
+} catch (error) {
+  throw new Error("Authentication failed");
+}
+};
