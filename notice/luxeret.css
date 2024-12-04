@@ -33,6 +33,43 @@
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
 }
+
+#loginButton {
+  display: flex; /* 텍스트와 아이콘을 가로로 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 10px 20px; /* 버튼 내부 여백 (가로 20px, 세로 10px) */
+  background-color: #272727; /* 버튼 배경 색상 */
+  border-radius: 10px; /* 모서리 둥글게 처리 */
+  color: white; /* 텍스트 색상 */
+  text-decoration: none; /* 링크 텍스트 밑줄 제거 */
+  font-size: 16px; /* 텍스트 크기 */
+  font-weight: 600; /* 텍스트 두께 */
+  transition: background-color 0.3s ease; /* 호버 시 배경 색상 변화 */
+}
+
+#loginButton:hover {
+  background-color: #272727; /* 호버 시 배경 색상 */
+}
+
+#logoutButton {
+display: flex; /* 텍스트와 아이콘을 가로로 정렬 */
+align-items: center; /* 세로 중앙 정렬 */
+padding: 10px 20px; /* 버튼 내부 여백 (가로 20px, 세로 10px) */
+background-color: #272727; /* 버튼 배경 색상 */
+border-radius: 10px; /* 모서리 둥글게 처리 */
+color: white; /* 텍스트 색상 */
+text-decoration: none; /* 링크 텍스트 밑줄 제거 */
+font-size: 16px; /* 텍스트 크기 */
+font-weight: 600; /* 텍스트 두께 */
+transition: background-color 0.3s ease; /* 호버 시 배경 색상 변화 */
+}
+
+#logoutButton {
+background-color: #272727; /* 호버 시 배경 색상 */
+}
+
+
+
 .container.w-container {
   text-align: center;
 }

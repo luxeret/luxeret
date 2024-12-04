@@ -33,225 +33,7 @@
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
 }
-body {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-.container1 {
-max-width: 800px;
-margin: 75px auto; /* 섹션 전체를 아래로 내림 */
-padding: 20px;
-border-radius: 8px;
-background: white;
-}
-.emoji {
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 15px;
-}
-.emoji img {
-width: 80px;
-height: 80px;
-}
-.title {
-font-size: 28px;
-font-weight: bold;
-margin-bottom: 30px;
-}
 
-.tag-container {
-margin-bottom: 25px;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-}
-.tag {
-display: inline-block;
-background: #007bff;
-color: white;
-padding: 8px 15px;
-border-radius: 15px;
-font-size: 16px;
-margin: 8px;
-cursor: pointer;
-font-family: NanumSquareNeoBold;
-text-decoration: none;
-}
-
-.faq {
-text-align: left;
-}
-.faq-item {
-padding: 15px;
-font-size: 16px;
-margin-bottom: 15px;
-border-radius: 8px;
-border: 1px solid #ddd;
-background: #f8f9fa;
-font-family: NanumSquareNeoBold;
-}
-
-/* 반응형 */
-@media (max-width: 768px) {
-.container1 {
-padding: 15px;
-margin: 75px auto; /* 섹션을 아래로 내림 */
-}
-.emoji img {
-width: 60px;
-height: 60px;
-}
-.title {
-font-size: 24px;
-}
-
-.tag-container {
-margin-bottom: 20px;
-flex-wrap: wrap;
-justify-content: center;
-}
-
-.tag {
-font-size: 14px;
-padding: 6px 12px;
-margin: 5px;
-}
-
-.faq-item {
-font-size: 14px;
-padding: 12px;
-}
-}
-
-@media (max-width: 480px) {
-.title {
-font-size: 20px;
-}
-.tag {
-font-size: 12px;
-padding: 5px 10px;
-margin: 5px;
-}
-.faq-item {
-font-size: 12px;
-padding: 10px;
-}
-}
-
-.title {
-  font-family: NanumSquareNeoExtraBold;
-}
-
-
-.container {
-  margin: 0 auto;
-  padding: 4rem;
-  width: 48rem;
-}
-
-.accordion {
-  display: flex;
-  flex-direction: column;
-}
-
-.accordion-item {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.accordion-item button {
-  position: relative;
-  display: block;
-  text-align: left;
-  width: 100%;
-  padding: 1em 0;
-  color: #7288a2;
-  font-size: 1.15rem;
-  font-weight: 400;
-  border: none;
-  background: none;
-  outline: none;
-}
-
-.accordion-item button:hover,
-.accordion-item button:focus {
-  cursor: pointer;
-  color: #03b5d2;
-}
-
-.accordion-item button:hover::after,
-.accordion-item button:focus::after {
-  cursor: pointer;
-  color: #03b5d2;
-  border: 1px solid #03b5d2;
-}
-
-.accordion-item button .accordion-title {
-  padding: 1em 1.5em 1em 0;
-}
-
-.accordion-item button .icon {
-  display: inline-block;
-  position: absolute;
-  top: 18px;
-  right: 0;
-  width: 22px;
-  height: 22px;
-  border: 1px solid;
-  border-radius: 22px;
-}
-
-.accordion-item button .icon::before {
-  display: block;
-  position: absolute;
-  content: '';
-  top: 9px;
-  left: 5px;
-  width: 10px;
-  height: 2px;
-  background: currentColor;
-}
-
-.accordion-item button .icon::after {
-  display: block;
-  position: absolute;
-  content: '';
-  top: 5px;
-  left: 9px;
-  width: 2px;
-  height: 10px;
-  background: currentColor;
-}
-
-.accordion-item button[aria-expanded='true'] {
-  color: #03b5d2;
-}
-
-.accordion-item button[aria-expanded='true'] .icon::after {
-  width: 0;
-}
-
-.accordion-item button[aria-expanded='true'] + .accordion-content {
-  opacity: 1;
-  max-height: 9em;
-  transition: all 200ms linear;
-  will-change: opacity, max-height;
-}
-
-.accordion-content {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 200ms linear, max-height 200ms linear;
-  will-change: opacity, max-height;
-}
-
-.accordion-content p {
-  font-size: 1rem;
-  font-weight: 300;
-  margin: 2em 0;
-}
 /* 푸터 공통 스타일 */
 .footer {
   padding: 20px;
@@ -3490,3 +3272,39 @@ html {
       grid-area: span 1 / span 1 / span 1 / span 1;
     }
   }
+
+  #loginButton {
+    display: flex; /* 텍스트와 아이콘을 가로로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    padding: 10px 20px; /* 버튼 내부 여백 (가로 20px, 세로 10px) */
+    background-color: #272727; /* 버튼 배경 색상 */
+    border-radius: 10px; /* 모서리 둥글게 처리 */
+    color: white; /* 텍스트 색상 */
+    text-decoration: none; /* 링크 텍스트 밑줄 제거 */
+    font-size: 16px; /* 텍스트 크기 */
+    font-weight: 600; /* 텍스트 두께 */
+    transition: background-color 0.3s ease; /* 호버 시 배경 색상 변화 */
+}
+
+#loginButton:hover {
+    background-color: #272727; /* 호버 시 배경 색상 */
+}
+
+#logoutButton {
+  display: flex; /* 텍스트와 아이콘을 가로로 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 10px 20px; /* 버튼 내부 여백 (가로 20px, 세로 10px) */
+  background-color: #272727; /* 버튼 배경 색상 */
+  border-radius: 10px; /* 모서리 둥글게 처리 */
+  color: white; /* 텍스트 색상 */
+  text-decoration: none; /* 링크 텍스트 밑줄 제거 */
+  font-size: 16px; /* 텍스트 크기 */
+  font-weight: 600; /* 텍스트 두께 */
+  transition: background-color 0.3s ease; /* 호버 시 배경 색상 변화 */
+}
+
+#logoutButton {
+  background-color: #272727; /* 호버 시 배경 색상 */
+}
+
+
