@@ -24,27 +24,28 @@
         <nav data-w-id="398f822d-d7ae-bf3b-539b-fdeedbd81689" class="navigation">
             <div class="nav-wrapper">
                 <a href="https://luxeret.com" aria-current="page" class="w-inline-block w--current">
-                    <img src="https://ifh.cc/g/0Z0qw1.png" loading="lazy" alt="" class="app-logo"/>
+                    <img src="https://ifh.cc/g/0Z0qw1.png" loading="lazy" alt="" class="app-logo" />
                 </a>
-                <div class="nav-menu">
+                <!-- 햄버거 메뉴 버튼 -->
+                <div class="hamburger-menu" id="hamburgerMenu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                <div class="nav-menu" id="navMenu">
                     <a href="https://luxeret.com/about" class="nav-link">회사소개</a>
                     <a href="https://luxeret.com/project" class="nav-link">프로젝트</a>
                     <a href="https://luxeret.com/notice" class="nav-link">공지사항</a>
                     <a href="https://luxeret.com/support" class="nav-link">고객센터</a>
-
-                    <!-- 로그인 후 표시할 로그아웃 버튼 -->
                     <a href="javascript:void(0);" id="logoutButton" class="nav-link logout-button" style="display: none;">로그아웃</a>
-
-                    <!-- 로그인 전 표시할 로그인 버튼 -->
-                    <a href="https://luxeret.com/login" id="loginButton" class="nav-link logout-button">
-                        로그인</a>
-                    
-                <div class="nav-burger">
-                    <div data-is-ix2-target="1" class="nav-lottie" data-w-id="398f822d-d7ae-bf3b-539b-fdeedbd81697" data-animation-type="lottie" data-src="https://cdn.prod.website-files.com/65bf7d3d6bb1c09b8e01a7d0/65bf98d3d599ba7badd96611_lottieflow-menu-nav-09-000000-easey.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="2.5" data-duration="0"></div>
+                    <a href="https://luxeret.com/login" id="loginButton" class="nav-link logout-button">로그인</a>
                 </div>
             </div>
         </nav>
     </div>
+
+   
+
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
@@ -103,6 +104,14 @@
                     });
             });
         };
+
+        const hamburgerMenu = document.getElementById("hamburgerMenu");
+            const navMenu = document.getElementById("navMenu");
+
+            hamburgerMenu.addEventListener("click", () => {
+                navMenu.classList.toggle("open");
+            });
+    
     </script>
 </body>
             <div class="section wf-section">
