@@ -2870,11 +2870,7 @@ html {
   .nav-link:hover {
     color: var(--accent);
   }
-  
-  .nav-burger {
-    display: none;
-  }
-  
+
   .help-wrapper {
     grid-column-gap: 12px;
     grid-row-gap: 12px;
@@ -2914,6 +2910,60 @@ html {
   .help-text {
     margin-top: 4px;
   }
+
+  
+/* 햄버거 메뉴 스타일 */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger-menu .line {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 4px 0;
+}
+
+/* 모바일 네비게이션 */
+.nav-menu {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-menu.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  /* 메뉴 배경 길게 설정 */
+  height: 245px;;  /* 내용에 맞춰 높이 자동 조정 */
+  max-height: 250vh;  /* 화면 높이의 80%를 넘지 않도록 설정 */
+  border-radius: 10px;  /* 원하는 만큼 둥글게 설정 */
+
+}
+
+/* 모바일 환경에서 햄버거 메뉴 보이기 */
+@media screen and (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+}
+
   
   .changelog-wrapper {
     grid-column-gap: 24px;
@@ -3232,18 +3282,6 @@ html {
       line-height: 28px;
     }
   
-    .nav-burger {
-      height: 24px;
-      padding-left: 4px;
-      padding-right: 4px;
-      display: block;
-    }
-  
-    .nav-lottie {
-      width: 24px;
-      height: 24px;
-      display: flex;
-    }
   
     .colors-placeholder {
       display: none;
