@@ -2926,6 +2926,8 @@ html {
   margin: 4px 0;
 }
 
+
+
 /* 모바일 네비게이션 */
 .nav-menu {
   display: flex;
@@ -2944,7 +2946,7 @@ html {
   z-index: 1000;
   /* 메뉴 배경 길게 설정 */
   height: 280px;;  /* 내용에 맞춰 높이 자동 조정 */
-  max-height: 280vh;  /* 화면 높이의 80%를 넘지 않도록 설정 */
+  max-height: 290vh; 
   border-radius: 10px;  /* 원하는 만큼 둥글게 설정 */
 
 }

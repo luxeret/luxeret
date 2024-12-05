@@ -44,11 +44,12 @@
                     <a href="javascript:void(0);" id="logoutButton" class="nav-link logout-button" style="display: none;">로그아웃</a>
                     <a href="https://luxeret.com/login/" id="loginButton" class="nav-link logout-button">로그인</a>
                     
-                    <!-- 알림 아이콘 -->
-                    <div id="notificationIcon" class="nav-link" style="display: none; cursor: pointer; margin-left: 10px; display: flex; align-items: center;">
+                    <a href="https://luxeret.com/notification-center/" id="notificationIcon" class="nav-link" style="display: none; cursor: pointer; margin-left: 10px; display: flex; align-items: center;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
                             <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
                         </svg>
+                    </a>
+                    
                     </div>
                 </div>
             </div>
@@ -111,18 +112,14 @@
                     console.error("로그인 실패:", error);
                 });
         });
-
-        // 햄버거 메뉴 버튼 클릭 시 처리
-        const hamburgerMenu = document.getElementById("hamburgerMenu");
+  // 햄버거 메뉴 버튼 클릭 시 처리
+  const hamburgerMenu = document.getElementById("hamburgerMenu");
         const navMenu = document.getElementById("navMenu");
+
         hamburgerMenu.addEventListener("click", () => {
             navMenu.classList.toggle("open");
         });
 
-// 알림 아이콘 클릭 시 공지사항 페이지로 리다이렉트
-document.getElementById("notificationIcon").addEventListener("click", () => {
-            window.location.href = "https://luxeret.com/notification-center/";
-        });
     </script>
 </body>
 </html>
