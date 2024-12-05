@@ -20,32 +20,39 @@
 
 
 <body>
+  
     <div class="page-wrapper">
-        <nav data-w-id="398f822d-d7ae-bf3b-539b-fdeedbd81689" class="navigation">
+        <nav class="navigation">
             <div class="nav-wrapper">
-                <a href="https://luxeret.com" aria-current="page" class="w-inline-block w--current">
-                    <img src="https://ifh.cc/g/0Z0qw1.png" loading="lazy" alt="" class="app-logo" />
+                <a href="https://luxeret.com/" class="w-inline-block w--current">
+                    <img src="https://ifh.cc/g/0Z0qw1.png" alt="Logo" class="app-logo" loading="lazy">
                 </a>
+                
                 <!-- 햄버거 메뉴 버튼 -->
                 <div class="hamburger-menu" id="hamburgerMenu">
                     <span class="line"></span>
                     <span class="line"></span>
                     <span class="line"></span>
                 </div>
+                
                 <div class="nav-menu" id="navMenu">
                     <a href="https://luxeret.com/about" class="nav-link">회사소개</a>
                     <a href="https://luxeret.com/project" class="nav-link">프로젝트</a>
                     <a href="https://luxeret.com/notice" class="nav-link">공지사항</a>
                     <a href="https://luxeret.com/support" class="nav-link">고객센터</a>
                     <a href="javascript:void(0);" id="logoutButton" class="nav-link logout-button" style="display: none;">로그아웃</a>
-                    <a href="https://luxeret.com/login" id="loginButton" class="nav-link logout-button">로그인</a>
+                    <a href="https://luxeret.com/login/" id="loginButton" class="nav-link logout-button">로그인</a>
+                    
+                    <!-- 알림 아이콘 -->
+                    <div id="notificationIcon" class="nav-link" style="display: none; cursor: pointer; margin-left: 10px; display: flex; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </nav>
     </div>
-
-   
-
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
@@ -67,51 +74,54 @@
         const provider = new GoogleAuthProvider();
         auth.languageCode = "ko"; // 한국어로 설정
 
-        // 페이지가 완전히 로드된 후에 실행
-        window.onload = function () {
-            // Firebase 인증 상태 변경 시 실행될 함수
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    // 로그인된 경우
-                    document.getElementById("loginButton").style.display = "none"; // 로그인 버튼 숨기기
-                    document.getElementById("logoutButton").style.display = "block"; // 로그아웃 버튼 표시
-                } else {
-                    // 로그인되지 않은 경우
-                    document.getElementById("loginButton").style.display = "block"; // 로그인 버튼 표시
-                    document.getElementById("logoutButton").style.display = "none"; // 로그아웃 버튼 숨기기
-                }
-            });
+        // Firebase 인증 상태 변경 시 처리
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // 로그인된 경우
+                document.getElementById("loginButton").style.display = "none";
+                document.getElementById("logoutButton").style.display = "block";
+                document.getElementById("notificationIcon").style.display = "flex";
+            } else {
+                // 로그인되지 않은 경우
+                document.getElementById("loginButton").style.display = "block";
+                document.getElementById("logoutButton").style.display = "none";
+                document.getElementById("notificationIcon").style.display = "none";
+            }
+        });
 
-            // 로그아웃 버튼 클릭 시
-            document.getElementById("logoutButton").addEventListener("click", () => {
-                signOut(auth).then(() => {
-                    window.location.href = "https://luxeret.com"; // 로그아웃 후 리다이렉트
-                }).catch((error) => {
-                    console.error("로그아웃 실패:", error);
+        // 로그아웃 버튼 클릭 시 처리
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            signOut(auth).then(() => {
+                window.location.href = "https://luxeret.com";
+            }).catch((error) => {
+                console.error("로그아웃 실패:", error);
+            });
+        });
+
+        // 구글 로그인 버튼 클릭 시 처리
+        document.getElementById("googleLogin").addEventListener("click", () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log('로그인 성공:', user);
+                    window.location.href = "https://luxeret.com/";
+                })
+                .catch((error) => {
+                    console.error("로그인 실패:", error);
                 });
-            });
+        });
 
-            // 구글 로그인 버튼 클릭 시
-            document.getElementById("googleLogin").addEventListener("click", () => {
-                signInWithPopup(auth, provider)
-                    .then((result) => {
-                        const user = result.user;
-                        console.log('로그인 성공:', user);
-                        window.location.href = "https://luxeret.com"; // 로그인 후 리다이렉트
-                    })
-                    .catch((error) => {
-                        console.error("로그인 실패:", error);
-                    });
-            });
-        };
-
+        // 햄버거 메뉴 버튼 클릭 시 처리
         const hamburgerMenu = document.getElementById("hamburgerMenu");
-            const navMenu = document.getElementById("navMenu");
+        const navMenu = document.getElementById("navMenu");
+        hamburgerMenu.addEventListener("click", () => {
+            navMenu.classList.toggle("open");
+        });
 
-            hamburgerMenu.addEventListener("click", () => {
-                navMenu.classList.toggle("open");
-            });
-    
+        // 알림 아이콘 클릭 시 공지사항 페이지로 리다이렉트
+        document.getElementById("notificationIcon").addEventListener("click", () => {
+            window.location.href = "https://luxeret.com/notification-center/";
+        });
     </script>
 </body>
             <div class="section wf-section">

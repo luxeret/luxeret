@@ -2,10 +2,10 @@
 <html data-wf-domain="luxeret.com" data-wf-page="luxeret-4873" data-wf-site="luxeret-4870">
 <head>
     <meta charset="utf-8"/>
-    <title>룩세렛ㅣ아이디어 정책</title>
-    <meta content="룩세렛ㅣ아이디어 정책 - 가치에 가치를 더하다" property="og:title"/>
+    <title>룩세렛ㅣ알림센터</title>
+    <meta content="룩세렛ㅣ알림센터 - 가치에 가치를 더하다" property="og:title"/>
     <meta content="https://ifh.cc/g/CokABr.jpg" property="og:image"/>
-    <meta content="룩세렛ㅣ아이디어 정책 - 가치에 가치를 더하다" property="twitter:title"/>
+    <meta content="룩세렛ㅣ알림센터 - 가치에 가치를 더하다" property="twitter:title"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link href="luxeret.css" rel="stylesheet" type="text/css"/>
     <meta name="naver-site-verification" content="483992bf4f969c4ad1b7b46d46bccc6257d5c97b" />
@@ -20,30 +20,31 @@
 
 
 <body>
-  
-    <div class="page-wrapper">
-        <nav class="navigation">
+    <div id="loadingScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+        <p>로딩 중...</p>
+    </div>
+
+    <div class="page-wrapper" style="display: none;">
+        <nav data-w-id="398f822d-d7ae-bf3b-539b-fdeedbd81689" class="navigation">
             <div class="nav-wrapper">
-                <a href="https://luxeret.com/" class="w-inline-block w--current">
-                    <img src="https://ifh.cc/g/0Z0qw1.png" alt="Logo" class="app-logo" loading="lazy">
+                <a href="https://luxeret.com" aria-current="page" class="w-inline-block w--current">
+                    <img src="https://ifh.cc/g/0Z0qw1.png" loading="lazy" alt="" class="app-logo" />
                 </a>
-                
                 <!-- 햄버거 메뉴 버튼 -->
                 <div class="hamburger-menu" id="hamburgerMenu">
                     <span class="line"></span>
                     <span class="line"></span>
                     <span class="line"></span>
                 </div>
-                
                 <div class="nav-menu" id="navMenu">
                     <a href="https://luxeret.com/about" class="nav-link">회사소개</a>
                     <a href="https://luxeret.com/project" class="nav-link">프로젝트</a>
                     <a href="https://luxeret.com/notice" class="nav-link">공지사항</a>
                     <a href="https://luxeret.com/support" class="nav-link">고객센터</a>
                     <a href="javascript:void(0);" id="logoutButton" class="nav-link logout-button" style="display: none;">로그아웃</a>
-                    <a href="https://luxeret.com/login/" id="loginButton" class="nav-link logout-button">로그인</a>
-                    
-                    <!-- 알림 아이콘 -->
+                    <a href="https://luxeret.com/login" id="loginButton" class="nav-link logout-button">로그인</a>
+
+                    <!-- 알림 아이콘 추가 -->
                     <div id="notificationIcon" class="nav-link" style="display: none; cursor: pointer; margin-left: 10px; display: flex; align-items: center;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
                             <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
@@ -52,6 +53,7 @@
                 </div>
             </div>
         </nav>
+
     </div>
 
     <script type="module">
@@ -74,94 +76,94 @@
         const provider = new GoogleAuthProvider();
         auth.languageCode = "ko"; // 한국어로 설정
 
-        // Firebase 인증 상태 변경 시 처리
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // 로그인된 경우
-                document.getElementById("loginButton").style.display = "none";
-                document.getElementById("logoutButton").style.display = "block";
-                document.getElementById("notificationIcon").style.display = "flex";
-            } else {
-                // 로그인되지 않은 경우
-                document.getElementById("loginButton").style.display = "block";
-                document.getElementById("logoutButton").style.display = "none";
-                document.getElementById("notificationIcon").style.display = "none";
-            }
-        });
+        // 페이지가 완전히 로드된 후에 실행
+        window.onload = function () {
+            // Firebase 인증 상태 변경 시 실행될 함수
+            onAuthStateChanged(auth, (user) => {
+                // 로딩 화면 숨기기
+                document.getElementById("loadingScreen").style.display = "none";
 
-        // 로그아웃 버튼 클릭 시 처리
-        document.getElementById("logoutButton").addEventListener("click", () => {
-            signOut(auth).then(() => {
-                window.location.href = "https://luxeret.com";
-            }).catch((error) => {
-                console.error("로그아웃 실패:", error);
+                if (user) {
+                    // 로그인된 경우
+                    document.getElementById("loginButton").style.display = "none"; // 로그인 버튼 숨기기
+                    document.getElementById("logoutButton").style.display = "block"; // 로그아웃 버튼 표시
+                    document.getElementById("notificationIcon").style.display = "flex"; // 알림 아이콘 표시
+                    document.querySelector(".page-wrapper").style.display = "block"; // 페이지 내용 표시
+                } else {
+                    // 로그인되지 않은 경우
+                    window.location.href = "https://luxeret.com/login"; // 로그인되지 않으면 로그인 페이지로 리다이렉트
+                }
             });
-        });
 
-        // 구글 로그인 버튼 클릭 시 처리
-        document.getElementById("googleLogin").addEventListener("click", () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const user = result.user;
-                    console.log('로그인 성공:', user);
-                    window.location.href = "https://luxeret.com/";
-                })
-                .catch((error) => {
-                    console.error("로그인 실패:", error);
+            // 로그아웃 버튼 클릭 시
+            document.getElementById("logoutButton").addEventListener("click", () => {
+                signOut(auth).then(() => {
+                    window.location.href = "https://luxeret.com"; // 로그아웃 후 리다이렉트
+                }).catch((error) => {
+                    console.error("로그아웃 실패:", error);
                 });
-        });
+            });
 
-        // 햄버거 메뉴 버튼 클릭 시 처리
+            // 구글 로그인 버튼 클릭 시
+            document.getElementById("googleLogin").addEventListener("click", () => {
+                signInWithPopup(auth, provider)
+                    .then((result) => {
+                        const user = result.user;
+                        console.log('로그인 성공:', user);
+                        window.location.href = "https://luxeret.com"; // 로그인 후 리다이렉트
+                    })
+                    .catch((error) => {
+                        console.error("로그인 실패:", error);
+                    });
+            });
+        };
+
         const hamburgerMenu = document.getElementById("hamburgerMenu");
         const navMenu = document.getElementById("navMenu");
+
         hamburgerMenu.addEventListener("click", () => {
             navMenu.classList.toggle("open");
         });
 
-        // 알림 아이콘 클릭 시 공지사항 페이지로 리다이렉트
-        document.getElementById("notificationIcon").addEventListener("click", () => {
-            window.location.href = "https://luxeret.com/notification-center/";
-        });
     </script>
 </body>
+</html>
             
-            <div class="section wf-section">
-                <div class="container w-container">
-                    <div class="pdf-container">
-                        <iframe src="idea.pdf" frameborder="0"></iframe>
-                    </div>
-                    <style>
-        .pdf-container {
-            width: 100%;
-            height: 100vh;
-            margin: 0 auto;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .pdf-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        @media (max-width: 768px) {
-            .pdf-container {
-                width: 100%;
-                height: 100vh;
-                margin: 0;
-                border: none;
-                box-shadow: none;
-            }
-        }
-                    </style>
-        
-                    </div>
+            <div class="banner">
+                <video autoplay loop muted playsinline id="myVideo">
+                    <source src="https://ifh.cc/v/Qq4j36.mp4" type="video/mp4"/>
+                </video>
+                <div class="banner-text">
+                    알림센터
+                </div>
+                <div class="video-controls" id="videoControl">
+                    <button class="play-pause" onclick="togglePlayPause()">Ⅱ</button>
                 </div>
             </div>
+            
 
+            <div id="notice">
+                <div class="section wf-section">
+                    <div class="container w-container">
+                        <h2 class="font-align-center no-top-margin">알림센터 🔔</h2>
+                        <div class="container1">
+                            <a href="#" class="button1">
+                                등록된 알림이 없습니다.
+                                <span class="arrow">➡️</span>
+                            </a>
+
+                    
+                            <div class="pagination">
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </body>
+                    </html>
+                        
+                
+                        </div>
+                    </div>
+                </div>
             <div class="footer">
                 <div class="info">
                     <span><strong>룩세렛 대표이사 : 송인정</strong></span>
