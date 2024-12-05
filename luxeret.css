@@ -2943,8 +2943,8 @@ html {
   border: 1px solid #ccc;
   z-index: 1000;
   /* 메뉴 배경 길게 설정 */
-  height: 245px;;  /* 내용에 맞춰 높이 자동 조정 */
-  max-height: 250vh;  /* 화면 높이의 80%를 넘지 않도록 설정 */
+  height: 280px;;  /* 내용에 맞춰 높이 자동 조정 */
+  max-height: 280vh;  /* 화면 높이의 80%를 넘지 않도록 설정 */
   border-radius: 10px;  /* 원하는 만큼 둥글게 설정 */
 
 }
