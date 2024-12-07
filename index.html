@@ -138,6 +138,116 @@
                 </div>
             </div>
             
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Popup with Clickable Image</title>
+              <style>
+                /* 팝업 오버레이 */
+                .popup-overlay {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  z-index: 1000;
+                  visibility: hidden;
+                  opacity: 0;
+                  transition: opacity 0.3s, visibility 0.3s;
+                }
+            
+                /* 팝업 컨테이너 */
+                .popup {
+                  position: relative;
+                  background-color: #fff;
+                  border-radius: 12px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  overflow: hidden;
+                  width: 500px;
+                  height: 500px;
+                  max-width: 90%;
+                  max-height: 90%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+            
+                /* 팝업 이미지 */
+                .popup img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  cursor: pointer;
+                }
+            
+                /* 닫기 버튼 */
+                .close-btn {
+                  position: absolute;
+                  top: 10px;
+                  right: 10px;
+                  background-color: #ff5f5f;
+                  color: white;
+                  border: none;
+                  border-radius: 50%;
+                  width: 30px;
+                  height: 30px;
+                  font-size: 18px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  z-index: 1001;
+                }
+            
+                /* 팝업 활성화 */
+                .popup-overlay.active {
+                  visibility: visible;
+                  opacity: 1;
+                }
+            
+                /* 모바일 반응형 */
+                @media (max-width: 768px) {
+                  .popup {
+                    width: 90%;
+                    height: auto;
+                  }
+                }
+              </style>
+            </head>
+            <body>
+              <div class="popup-overlay" id="popupOverlay">
+                <div class="popup">
+                  <button class="close-btn" id="closePopup">×</button>
+                  <!-- 이미지를 클릭하면 URL로 이동 -->
+                  <a href="http://www.christmas-luxeret.kro.kr/" target="_blank">
+                    <img src="https://ifh.cc/g/kSo1C1.webp" alt="Popup Image">
+                  </a>
+                </div>
+              </div>
+            
+              <script>
+                // 페이지 로드 시 팝업 표시
+                window.onload = () => {
+                  const popup = document.getElementById('popupOverlay');
+                  const closeBtn = document.getElementById('closePopup');
+            
+                  popup.classList.add('active');
+            
+                  // 'X' 버튼 클릭 시 팝업 닫기
+                  closeBtn.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                  });
+                };
+              </script>
+            </body>
+            </html>
+            
 
             <section class="section">
                 <div class="container">
