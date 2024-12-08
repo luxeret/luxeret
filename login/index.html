@@ -28,13 +28,17 @@
                 구글 아이디로 로그인
             </button>
             
+            <button id="githubLogin">
+                <img src="https://ifh.cc/g/2p7OAQ.png" alt="GitHub Logo" style="width: 20px; height: 20px;">
+                깃허브 아이디로 로그인
+            </button>
         </div>
     </div>
     
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
     
         // Firebase configuration
         const firebaseConfig = {
@@ -69,6 +73,20 @@
                     console.error(error);
                 });
         });
+
+            // GitHub 로그인 버튼 클릭 시
+    document.getElementById("githubLogin").addEventListener("click", () => {
+        const githubProvider = new GithubAuthProvider();
+        signInWithPopup(auth, githubProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log('GitHub 로그인 성공:', user);
+                window.location.href = "https://luxeret.com"; // 로그인 후 리다이렉트
+            })
+            .catch((error) => {
+                console.error("GitHub 로그인 실패:", error);
+            });
+    });
     </script>
 
 
@@ -115,6 +133,20 @@
                 });
         });
     };
+
+        // GitHub 로그인 버튼 클릭 시
+        document.getElementById("githubLogin").addEventListener("click", () => {
+        const githubProvider = new GithubAuthProvider();
+        signInWithPopup(auth, githubProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log('GitHub 로그인 성공:', user);
+                window.location.href = "https://luxeret.com"; // 로그인 후 리다이렉트
+            })
+            .catch((error) => {
+                console.error("GitHub 로그인 실패:", error);
+            });
+    });
 </script>
 
 
