@@ -58,7 +58,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
         // Firebase 설정
         const firebaseConfig = {
@@ -112,13 +112,29 @@
                     console.error("로그인 실패:", error);
                 });
         });
-  // 햄버거 메뉴 버튼 클릭 시 처리
-  const hamburgerMenu = document.getElementById("hamburgerMenu");
-        const navMenu = document.getElementById("navMenu");
 
+          // GitHub 로그인 버튼 클릭 시
+    document.getElementById("githubLogin").addEventListener("click", () => {
+        const githubProvider = new GithubAuthProvider();
+        signInWithPopup(auth, githubProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log('GitHub 로그인 성공:', user);
+                window.location.href = "https://luxeret.com"; // 로그인 후 리다이렉트
+            })
+            .catch((error) => {
+                console.error("GitHub 로그인 실패:", error);
+            });
+    });
+
+    
+        // 햄버거 메뉴 버튼 클릭 시 처리
+        const hamburgerMenu = document.getElementById("hamburgerMenu");
+        const navMenu = document.getElementById("navMenu");
         hamburgerMenu.addEventListener("click", () => {
             navMenu.classList.toggle("open");
         });
+
 
     </script>
 </body>
