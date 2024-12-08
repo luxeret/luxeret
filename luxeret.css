@@ -2912,59 +2912,6 @@ html {
   }
 
   
-/* 햄버거 메뉴 스타일 */
-.hamburger-menu {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.hamburger-menu .line {
-  width: 25px;
-  height: 3px;
-  background-color: black;
-  margin: 4px 0;
-}
-
-
-
-/* 모바일 네비게이션 */
-.nav-menu {
-  display: flex;
-  gap: 15px;
-}
-
-.nav-menu.open {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  right: 10px;
-  background-color: white;
-  padding: 10px;
-  border: 1px solid #ccc;
-  z-index: 1000;
-  /* 메뉴 배경 길게 설정 */
-  height: 280px;;  /* 내용에 맞춰 높이 자동 조정 */
-  max-height: 290vh; 
-  border-radius: 10px;  /* 원하는 만큼 둥글게 설정 */
-
-}
-
-/* 모바일 환경에서 햄버거 메뉴 보이기 */
-@media screen and (max-width: 768px) {
-  .hamburger-menu {
-    display: flex;
-  }
-
-  .nav-menu {
-    display: none;
-  }
-
-  .nav-menu.open {
-    display: flex;
-  }
-}
 
   
   .changelog-wrapper {
@@ -3348,5 +3295,61 @@ html {
 }
 
 
+
+
+/* 기본 레이아웃 (PC용) */
+.page-wrapper {
+  display: block; /* 기본적으로 페이지 내용이 보이도록 */
+}
+
+.mobile_popup {
+  display: none; /* 기본적으로 모바일 팝업은 숨김 */
+}
+
+/* 모바일 환경에서 하단 고정 팝업 보이기 */
+@media screen and (max-width: 768px) {
+  .page-wrapper {
+    display: none;
+  }
+
+  .mobile_popup {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #dfdfdf;
+    padding: 10px;
+    border-top: 2px solid #c0c0c0;
+    border-radius: 10px 10px 0 0;
+    z-index: 9999;
+  }
+
+  .menu_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .menu_item svg {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+  }
+
+  .menu_item span {
+    font-size: 12px;
+  }
+
+  .menu_item:hover {
+    opacity: 0.8;
+  }
+}
 
 
