@@ -37,7 +37,7 @@
 /* 푸터 공통 스타일 */
 .footer {
   padding: 20px;
-  background-color: #e7e7e7;
+  background-color: #191f28;
   font-size: 14px;
   text-align: center;
   word-wrap: break-word;
@@ -45,12 +45,18 @@
 
 .footer .info, .footer .copyright, .footer .links {
   margin-bottom: 10px;
+  color: #ffffff;
 }
 
 .footer .info span {
   display: inline-block;
   margin-right: 10px;
+  color: #ffffff;
   margin-bottom: 5px;
+}
+
+.footer .a{
+color: #ffffff;
 }
 
 .footer .links {
@@ -58,13 +64,14 @@
   justify-content: center; /* 가운데 정렬 */
   align-items: center; /* 수직 정렬 */
   flex-wrap: wrap; /* 줄바꿈 처리 */
+  color: #ffffff;
 }
 
 .footer .links a {
   display: inline-block;
   margin: 5px;
   text-decoration: none;
-  color: #333;
+  color: #b0b8c1;
   font-size: 14px;
 }
 
@@ -72,7 +79,7 @@
 .family-site {
   position: relative;
   display: inline-block;
-  margin-left: 10px; /* 신고센터 옆에 배치 */
+  margin-left: 10px; 
 }
 
 .family-btn {
@@ -114,7 +121,7 @@
 .family-dropdown a {
   display: block;
   padding: 10px 20px;
-  color: #333;
+  color: #000000;
   text-decoration: none;
   border-bottom: 1px solid #ddd;
   white-space: nowrap;
