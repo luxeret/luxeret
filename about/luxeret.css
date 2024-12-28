@@ -1,38 +1,51 @@
 @font-face {
-  font-family: 'NanumSquareNeoLight';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: 'NanumSquareNeo';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf) format("truetype");
-}
-
-@font-face {
   font-family: 'NanumSquareNeoBold';
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'NanumSquareNeoExtraBold';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf) format("truetype");
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'NanumSquareNeoHeavy';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf) format("truetype");
+  font-family: 'Pretendard-Medium';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'NanumSquareNeoVariable';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
+  font-family: 'Pretendard-Light';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: 'Pretendard-ExtraLight';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Bold';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-ExtraBold';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
 
 /* 푸터 공통 스타일 */
 .footer {
@@ -41,11 +54,13 @@
   font-size: 14px;
   text-align: center;
   word-wrap: break-word;
+  font-family: Pretendard-Regular;
 }
 
 .footer .info, .footer .copyright, .footer .links {
   margin-bottom: 10px;
   color: #ffffff;
+  font-family: Pretendard-Light;
 }
 
 .footer .info span {
@@ -53,6 +68,7 @@
   margin-right: 10px;
   color: #ffffff;
   margin-bottom: 5px;
+  
 }
 
 .footer .a{
@@ -92,6 +108,7 @@ color: #ffffff;
   font-size: 14px;
   transition: background-color 0.3s ease;
   vertical-align: middle; /* 버튼이 신고센터와 수평 정렬 */
+  font-family: Pretendard-Regular;
 }
 
 .family-btn:hover {
@@ -172,6 +189,7 @@ color: #ffffff;
   transform: translateX(-50%);
   color: white;
   font-size: 70px;
+  font-family: Pretendard-ExtraBold;
   text-align: center;
   font-weight: bold;
   line-height: 1.5;
@@ -240,12 +258,12 @@ color: #ffffff;
 }
 
 .clients-wrapper {
-  font-family: NanumSquareNeoExtraBold;
+  font-family: Pretendard-Bold;
   font-size: 20px;
 }
 
 .features-description {
-  font-family: NanumSquareNeoExtraBold;
+  font-family: Pretendard-Medium;
   font-size: 20px;
   color: #797979;
 }
@@ -253,7 +271,7 @@ color: #ffffff;
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Medium;
   }
   
   body {
@@ -345,7 +363,7 @@ html {
   }
   
   code, kbd, pre, samp {
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 1em;
   }
   
@@ -476,7 +494,7 @@ html {
     background-color: #fff;
     min-height: 100%;
     margin: 0;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 14px;
     line-height: 20px;
   }
@@ -1220,7 +1238,7 @@ html {
   .w-widget-twitter-count-shim .w-widget-twitter-count-inner {
     text-align: center;
     color: #999;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 15px;
     line-height: 12px;
     position: relative;
@@ -1619,7 +1637,7 @@ html {
     -webkit-tap-highlight-color: transparent;
     background: rgba(0, 0, 0, .9);
     outline: 0;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 17px;
     font-style: normal;
     font-weight: 300;
@@ -2268,7 +2286,7 @@ html {
     background-color: var(--white--primary);
     color: var(--black--primary);
     letter-spacing: -.01em;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 16px;
     line-height: 24px;
   }
@@ -2365,7 +2383,7 @@ html {
   }
   
   .section.features-gray {
-    background-color: #fafafa;
+    background-color: #f9fafb;
     padding-top: 160px;
     padding-bottom: 160px;
   }
@@ -2373,6 +2391,7 @@ html {
   .section.cta-section {
     padding-top: 120px;
     padding-bottom: 120px;
+    font-family: Pretendard-Bold;
   }
   
   .section.footer-top {
@@ -2607,6 +2626,8 @@ html {
     align-self: center;
     max-width: 430px;
     display: flex;
+    font-family: Pretendard-Medium;
+    font-size: 20px
   }
   
   .overview-grid {
@@ -2689,6 +2710,7 @@ html {
     flex: 1;
     align-items: flex-start;
     display: flex;
+    font-family: Pretendard-ExtraBold;
   }
   
   .overview-image-mobile {
@@ -2748,6 +2770,7 @@ html {
   
   .benefits-description {
     margin-top: -4px;
+    font-family: Pretendard-Medium;
   }
   
   .benefits-caption {
