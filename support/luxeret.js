@@ -45,13 +45,12 @@
     
       if (dropdown.classList.contains('show-dropdown')) {
           dropdown.classList.remove('show-dropdown');
-          btn.innerHTML = '관련 사이트 ▲';
+          btn.innerHTML = '패밀리 사이트 ▲';
       } else {
           dropdown.classList.add('show-dropdown');
-          btn.innerHTML = '관련 사이트 ▼';
+          btn.innerHTML = '패밀리 사이트 ▼';
       }
     }
-
     
     const items = document.querySelectorAll(".accordion button");
 
