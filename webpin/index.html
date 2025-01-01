@@ -172,11 +172,14 @@
             </div>
             
 
-            <section id="about"></section>
-            <section id="introduction">
+            <section id="portfolio">
                 <h2 class="section1-title">서비스 소개 ℹ️</h2>
-                <div class="content1">
-                    <img src="https://ifh.cc/g/VCn1K1.webp" alt="소개 이미지">
+                <div class="portfolio-banner">
+                    <div class="slider">
+                        <img src="https://ifh.cc/g/sYMaH4.jpg" alt="소개 이미지2">
+                        <img src="https://ifh.cc/g/mMO38N.jpg" alt="소개 이미지3">
+                        <img src="https://ifh.cc/g/VCn1K1.webp" alt="소개 이미지">
+                    </div>
                 </div>
             </section>
            
@@ -202,12 +205,11 @@
             
             
 
-            <section id="portfolio">
+            <section id="about"></section>
+            <section id="introduction">
                 <h2 class="section1-title">제작사례📈</h2>
-                <div class="portfolio-banner">
-                    <div class="slider">
-                        <img src="https://ifh.cc/g/DkJnGM.png" alt="포트폴리오 1">
-                    </div>
+                <div class="content1">
+                    <img src="https://ifh.cc/g/DkJnGM.png" alt="소개 이미지">
                 </div>
             </section>
 
@@ -215,6 +217,7 @@
                 <form id="contact-form">
                     <input type="text" name="company" placeholder="회사명" required>
                     <input type="text" name="name" placeholder="성함" required>
+                    <input type="text" name="purpose" placeholder="용도" required>
                     <input type="text" name="phone" placeholder="연락처" required>
                     <input type="email" name="email" placeholder="이메일" required>
                     <textarea name="message" rows="5" placeholder="기타 내용을 입력하세요." required></textarea>
@@ -252,6 +255,7 @@
                                 fields: [
                                     { name: "회사명", value: formData.get("company"), inline: true },
                                     { name: "성함", value: formData.get("name"), inline: true },
+                                    { name: "용도", value: formData.get("purpose"), inline: true },
                                     { name: "연락처", value: formData.get("phone"), inline: true },
                                     { name: "이메일", value: formData.get("email"), inline: false },
                                     { name: "기타 내용", value: formData.get("message"), inline: false },
@@ -289,7 +293,7 @@
                     <span><a href="https://moneypin.biz/bizno/detail/4840303394/"><strong style="color: #ffffff;">사업자 정보확인</strong></a></span>
                 </div>
                 <div class="copyright">
-                    Copyright © 2024 LUXERET. All Rights Reserved.
+                    Copyright © 2024-2025 LUXERET. All Rights Reserved.
                 </div>
                 <div class="links">
                     <a href="https://luxeret.com/email">이메일 무단 수집거부</a>
