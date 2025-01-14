@@ -241,49 +241,34 @@
 
 
             <script>
-                document.getElementById("contact-form").addEventListener("submit", async function (event) {
+                document.getElementById("contact-form").addEventListener("submit", function (event) {
                     event.preventDefault();
             
                     const formData = new FormData(event.target);
-                    const webhookURL = "https://discord.com/api/webhooks/1327934362301370399/Dzk-AEVquQMxB4qbyUFkRydIvkMVAb_h2YAmOr4Lnx8xdmTrmhwlu8jSU8ta5LHL4_Mq";
+                    
+                    // 이메일 주소와 제목, 내용 설정
+                    const email = "biz@luxeret.com";
+                    const subject = "웹핀 문의가 도착했습니다!";
+                    const body = `
+                        회사명: ${formData.get("company")}
+                        성함: ${formData.get("name")}
+                        용도: ${formData.get("purpose")}
+                        연락처: ${formData.get("phone")}
+                        이메일: ${formData.get("email")}
+                        기타 내용: ${formData.get("message")}
+                    `;
             
-                    const payload = {
-                        content: "새로운 문의가 도착했습니다!",
-                        embeds: [
-                            {
-                                title: "문의 내용",
-                                fields: [
-                                    { name: "회사명", value: formData.get("company"), inline: true },
-                                    { name: "성함", value: formData.get("name"), inline: true },
-                                    { name: "용도", value: formData.get("purpose"), inline: true },
-                                    { name: "연락처", value: formData.get("phone"), inline: true },
-                                    { name: "이메일", value: formData.get("email"), inline: false },
-                                    { name: "기타 내용", value: formData.get("message"), inline: false },
-                                ],
-                                color: 3447003
-                            }
-                        ]
-                    };
+                    // 이메일 전송을 위한 mailto 링크 생성
+                    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             
-                    try {
-                        const response = await fetch(webhookURL, {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(payload),
-                        });
+                    // 이메일 클라이언트 열기
+                    window.location.href = mailtoLink;
             
-                        if (response.ok) {
-                            alert("문의가 성공적으로 전송되었습니다!");
-                            event.target.reset();
-                        } else {
-                            alert("문의 전송에 실패했습니다. 다시 시도해주세요.");
-                        }
-                    } catch (error) {
-                        console.error("Error:", error);
-                        alert("문의 전송 중 오류가 발생했습니다.");
-                    }
+                    // 폼 리셋
+                    event.target.reset();
                 });
             </script>
+            
 
         
                        <div class="footer">
