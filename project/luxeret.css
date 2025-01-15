@@ -147,6 +147,40 @@ color: #ffffff;
   background-color: #e0e0e0;
 }
 
+/* 모바일에서는 family-site 버튼 숨김 */
+@media (max-width: 768px) {
+  .family-site {
+      display: none; /* 모바일에서 FAMILY SITE 숨김 */
+  }
+}
+
+/* 드롭다운 활성화 */
+.show-dropdown {
+  display: block;
+}
+
+.business-check {
+  display: inline-block;
+  background-color: #444;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 10px; /* 둥근 모서리 */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.business-check:hover {
+  background-color: #666;
+}
+
+button:focus, a:focus {
+  outline: 2px dashed #fdfdfd; /* 검정 점선 테두리 */
+}
+
+*:focus {
+  outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
+}
+
 .container1 {
   display: flex;
   flex-direction: column;
@@ -323,6 +357,28 @@ color: #ffffff;
 /* 드롭다운 활성화 */
 .show-dropdown {
   display: block;
+}
+
+.business-check {
+  display: inline-block;
+  background-color: #444;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 10px; /* 둥근 모서리 */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.business-check:hover {
+  background-color: #666;
+}
+
+button:focus, a:focus {
+  outline: 2px dashed #fdfdfd; /* 검정 점선 테두리 */
+}
+
+*:focus {
+  outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
 }
 
 

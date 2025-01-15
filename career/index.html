@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채용 정보</title>
+    <link href="luxeret.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <script>
+        function filterJobs(category) {
+            const listings = document.querySelectorAll('.job-listing');
+            listings.forEach(listing => {
+                if (category === '전체' || listing.dataset.category === category) {
+                    listing.style.display = 'block';
+                } else {
+                    listing.style.display = 'none';
+                }
+            });
+        }
+    
+        function searchJobs() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const listings = document.querySelectorAll('.job-listing');
+            let found = false;
+    
+            listings.forEach(listing => {
+                const title = listing.querySelector('h4') ? listing.querySelector('h4').textContent.toLowerCase() : '';
+                const tags = Array.from(listing.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                const content = title + ' ' + tags.join(' '); // Title + Tags combined
+    
+                if (content.includes(searchInput)) {
+                    listing.style.display = 'block';
+                    found = true;
+                } else {
+                    listing.style.display = 'none';
+                }
+            });
+    
+            const message = document.getElementById('noResultsMessage');
+            if (!found) {
+                message.style.display = 'block';
+                message.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    message.style.transform = 'scale(1)';
+                }, 300);
+            } else {
+                message.style.display = 'none';
+            }
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    searchJobs();
+                }
+            });
+    
+            // Add click event to job listings to navigate to detail page
+            const jobListings = document.querySelectorAll('.job-listing');
+            jobListings.forEach(listing => {
+                listing.addEventListener('click', () => {
+                    const title = listing.querySelector('h4').textContent.toLowerCase();
+                    // Assuming you have detailed pages named by job titles
+                    window.location.href = `/job-detail/${title.replace(/\s+/g, '-').toLowerCase()}`;
+                });
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <main>
+        <h1>룩세렛 CAREER</h1>
+        <p>지금바로 팀룩세렛에서 활동해보세요!</p>
+    </main>
+
+    <div class="search-container">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="직무명, 주요 업무 등을 검색해보세요.">
+        </div>
+        <div id="openPositionsCount" class="open-positions">현재 1개의 포지션이 열려있어요</div>
+    </div>
+
+    <div class="layout">
+        <div class="categories-vertical">
+            <button onclick="filterJobs('전체')">전체</button>
+            <button onclick="filterJobs('Backend Developer')">Developer</button>
+            <button onclick="filterJobs('Design')">Design</button>
+            <button onclick="filterJobs('Marketing')">Marketing</button>
+            <button onclick="filterJobs('Product')">Product</button>
+            <button onclick="filterJobs('Sales')">Sales</button>
+            <button onclick="filterJobs('Security')">Security</button>
+            
+        </div>
+
+        <div class="listings-container">
+            <div id="noResultsMessage">모집분야가 없습니다. 다른 카테고리를 선택해보세요.</div>
+
+            <div class="job-listing" data-category="Sales">
+                <h4>Sales Representative</h4>
+                <div class="tags">
+                    <span class="tag">제품판매</span>
+                    <span class="tag">제품분석</span>
+                    <span class="tag">집중채용</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<body>
+    <div class="benefits-header">
+        <h1>룩세렛 팀원 배네핏</h1>
+        <p>팀 룩세렛에서 누릴 수 있는 다양한 혜택을 만나보세요.</p>
+    </div>
+
+    <div class="benefits-container">
+        <div class="benefit-item">
+            <i class="fas fa-laptop-code"></i>
+            <h3>자율업무 🕖</h3>
+            <p>유연 근무제 및 자택 근무환경</p>
+        </div>
+        <div class="benefit-item">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>자기계발 📖</h3>
+            <p>강의비 및 도서비 무상지원</p>
+        </div>
+        <div class="benefit-item">
+            <i class="fas fa-plane"></i>
+            <h3>자율휴가 🏝️</h3>
+            <p>리프레시 휴가 포함 넉넉한 휴가 제공</p>
+        </div>
+        <div class="benefit-item">
+            <i class="fas fa-gift"></i>
+            <h3>생일과 기념일 🎉</h3>
+            <p>생일 및 기념일에 특별 선물 지급</p>
+        </div>
+    </div>
+</body>
+
+
+<div class="footer">
+    <div class="info">
+        <span><strong>룩세렛 대표이사 : 김태준</strong></span>
+        <span>ㅣ</span>
+        <span><strong>사업자등록번호 : 802-68-00634</strong></span>
+        <span>ㅣ</span>
+        <span>
+            <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=8026800634" class="business-check">
+                <strong style="color: #ffffff;">사업자 정보확인</strong>
+            </a>
+        </span>
+        <span>ㅣ</span>                  
+        <span><strong>통신판매업 : 2025-인천연수구-0263</strong></span> <br>
+        <span><strong>주소 : 인천타워대로 323, 송도센트로드 C동 2304-B58호</strong></span>
+    </div>
+    <div class="copyright">
+        Copyright © 2024-2025 LUXERET. All Rights Reserved.
+    </div>
+    <div class="links">
+        <a href="https://luxeret.com/email">이메일 무단 수집거부</a>
+        <a href="https://luxeret.com/idea">아이디어 정책</a>
+        <a href="https://luxeret.com/support/">고객센터</a>
+        <a href="https://luxeret.com/policy/terms/">이용약관</a>
+        <a href="https://luxeret.com/policy/privacy/">개인정보처리방침</a>
+
+        <div class="family-site">
+            <button class="family-btn" onclick="toggleDropdown()">패밀리 사이트 ▲</button>
+            <ul class="family-dropdown">
+                <li><a href="https://luxeret.com/webpin" target="_blank">
+                    <strong style="color: #000000;">웹핀📌</strong>
+                </a></li>
+                <li><a href="https://returns.ovh" target="_blank">
+                    <strong style="color: #000000;">리턴🖥️</strong>
+                </a></li>
+            </ul>
+        </div>
+        
+
+<script>
+    (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+  
+    ChannelIO('boot', {
+      "pluginKey": "9825c9e9-131f-40b6-a0f2-0cc6dce71f3c"
+    });
+  </script>
+          <script src="luxeret.js" type="text/javascript"></script>
+    </body>
+</html>
+    

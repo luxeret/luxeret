@@ -46,6 +46,7 @@
   font-style: normal;
 }
 
+
 /* 푸터 공통 스타일 */
 .footer {
   padding: 20px;
@@ -181,50 +182,6 @@ button:focus, a:focus {
   outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
 }
 
-.business-check {
-  display: inline-block;
-  background-color: #444;
-  color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 10px; /* 둥근 모서리 */
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.business-check:hover {
-  background-color: #666;
-}
-
-button:focus, a:focus {
-  outline: 2px dashed #fdfdfd; /* 검정 점선 테두리 */
-}
-
-*:focus {
-  outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
-}
-
-.business-check {
-  display: inline-block;
-  background-color: #444;
-  color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 10px; /* 둥근 모서리 */
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.business-check:hover {
-  background-color: #666;
-}
-
-button:focus, a:focus {
-  outline: 2px dashed #fdfdfd; /* 검정 점선 테두리 */
-}
-
-*:focus {
-  outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
-}
-
 
 .banner {
   position: relative;
@@ -255,6 +212,7 @@ button:focus, a:focus {
   transform: translateX(-50%);
   color: white;
   font-size: 70px;
+  font-family: Pretendard-ExtraBold;
   text-align: center;
   font-weight: bold;
   line-height: 1.5;
@@ -323,12 +281,12 @@ button:focus, a:focus {
 }
 
 .clients-wrapper {
-  font-family: NanumSquareNeoExtraBold;
+  font-family: Pretendard-Bold;
   font-size: 20px;
 }
 
 .features-description {
-  font-family: NanumSquareNeoExtraBold;
+  font-family: Pretendard-Medium;
   font-size: 20px;
   color: #797979;
 }
@@ -336,7 +294,7 @@ button:focus, a:focus {
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Medium;
   }
   
   body {
@@ -428,7 +386,7 @@ html {
   }
   
   code, kbd, pre, samp {
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 1em;
   }
   
@@ -559,7 +517,7 @@ html {
     background-color: #fff;
     min-height: 100%;
     margin: 0;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 14px;
     line-height: 20px;
   }
@@ -1303,7 +1261,7 @@ html {
   .w-widget-twitter-count-shim .w-widget-twitter-count-inner {
     text-align: center;
     color: #999;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 15px;
     line-height: 12px;
     position: relative;
@@ -1702,7 +1660,7 @@ html {
     -webkit-tap-highlight-color: transparent;
     background: rgba(0, 0, 0, .9);
     outline: 0;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 17px;
     font-style: normal;
     font-weight: 300;
@@ -2351,7 +2309,7 @@ html {
     background-color: var(--white--primary);
     color: var(--black--primary);
     letter-spacing: -.01em;
-    font-family: NanumSquareNeoHeavy;
+    font-family: Pretendard-Bold;
     font-size: 16px;
     line-height: 24px;
   }
@@ -2448,7 +2406,7 @@ html {
   }
   
   .section.features-gray {
-    background-color: #fafafa;
+    background-color: #f9fafb;
     padding-top: 160px;
     padding-bottom: 160px;
   }
@@ -2456,6 +2414,7 @@ html {
   .section.cta-section {
     padding-top: 120px;
     padding-bottom: 120px;
+    font-family: Pretendard-Bold;
   }
   
   .section.footer-top {
@@ -2772,6 +2731,7 @@ html {
     flex: 1;
     align-items: flex-start;
     display: flex;
+    font-family: Pretendard-ExtraBold;
   }
   
   .overview-image-mobile {
@@ -3443,3 +3403,272 @@ html {
 }
 
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #191f28;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+
+
+
+
+main {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  padding: 50px 10%;
+  text-align: center;
+  border-bottom: 5px solid #1e3c72;
+}
+
+main h1 {
+  margin: 0;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+main p {
+  font-size: 1.2rem;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.search-bar {
+  position: relative;
+  max-width: 630px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar i {
+  position: absolute;
+  left: 15px;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: none;
+  outline: none;
+  
+}
+
+.open-positions {
+  text-align: center;
+  font-size: 1rem;
+  color: #0c0c0c;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.layout {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+}
+
+.categories-vertical {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #1c2025;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.categories-vertical button {
+  margin-bottom: 15px;
+  padding: 12px 20px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.categories-vertical button:hover {
+  background-color: #dfe6ed;
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.listings-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job-listing {
+  background-color: #2C323A;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.job-listing:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.job-listing h4 {
+  margin: 0 0 10px;
+  color: #fafafa;
+}
+
+.job-listing p {
+  margin: 5px 0;
+}
+
+#noResultsMessage {
+  display: none;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #d63031;
+  padding: 15px;
+  border: 2px dashed #e17055;
+  border-radius: 10px;
+  background: #fdecec;
+}
+
+/* 태그 스타일 */
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #f2f3f5;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #141414;
+  font-weight: 600;
+}
+
+.tag:hover {
+  background-color: #dfe6ed;
+}
+
+/* 혜택 섹션 */
+.benefits-header {
+  text-align: center;
+  background: linear-gradient(135deg, #f2f3f5, #b7b7b8);
+  border-radius: 15px;
+  width: 80%;
+  max-width: 1150px;
+  padding: 40px 20px;
+  color: #0e0e0e;
+  margin: 0 auto;
+  margin-bottom: -40px;
+  transform: translateX(-10px);
+}
+
+.benefits-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+}
+
+.benefits-header p {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #0c0c0c;
+}
+
+.benefits-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.benefit-item {
+  background: #1c2025;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  transform: translateX(-10px);
+}
+
+.benefit-item i {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #cccccc;
+}
+
+.benefit-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.benefit-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  main {
+    padding: 30px 5%;
+  }
+
+  main h1 {
+    font-size: 2rem;
+  }
+
+  main p {
+    font-size: 1rem;
+  }
+
+  .search-bar {
+    width: 90%;
+    max-width: 600px;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .categories-vertical {
+    display: none;
+  }
+
+  .benefits-header {
+    width: 90%;
+    transform: translateX(-1.5px);
+  }
+
+  .benefits-container {
+    transform: translateX(6px);
+  }
+}
