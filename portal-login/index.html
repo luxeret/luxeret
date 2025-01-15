@@ -16,6 +16,20 @@
 <meta name="theme-color" content="#ffffff">
 </head>
 <body>
+
+    <style>
+        .message-box {
+            display: none;
+            background-color: #ffdddd;
+            border: 1px solid #ff5c5c;
+            padding: 20px;
+            margin-top: 20px;
+            color: #ff0000;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+    </style>
   
     <div class="login-container">
         <div class="login-box">
@@ -25,14 +39,16 @@
                 <img src="https://ifh.cc/g/TNwjTg.png" alt="Google Logo">
                 구글 아이디로 로그인
             </button>
+            <div class="message-box" id="errorMessage">
+                사내 시스템 접근 권한이 없습니다. 다시 확인해주시기 바랍니다.
+            </div>
         </div>
     </div>
     
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-    
+        import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
         // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCtfK5Ruowyl9Yz6FdeRB_QoDKMOCor_k8",
@@ -42,79 +58,71 @@
             messagingSenderId: "482593560249",
             appId: "1:482593560249:web:936f2b13529866de462d68"
         };
-    
+
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    
-        const provider = new GoogleAuthProvider();
         const auth = getAuth();
         auth.languageCode = "ko";
-    
-        // Google 로그인 버튼 클릭 시
-        document.getElementById("googleLogin").addEventListener("click", () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const credential = GoogleAuthProvider.credentialFromResult(result);
-                    const token = credential.accessToken;
-                    const user = result.user;
-    
-                    // 로그인 후 luxeret.com으로 리다이렉트
-                    window.location.href = "https://luxeret.com/admin";
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        });
 
-    </script>
+        const googleLoginButton = document.getElementById("googleLogin");
+        const logoutButton = document.getElementById("logoutButton");
+        const errorMessage = document.getElementById("errorMessage");
 
-
-<script type="module">
-    import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-
-    // 페이지가 완전히 로드된 후에 실행
-    window.onload = function () {
-        const auth = getAuth();
-
-        // Firebase에서 인증 상태가 변경될 때마다 호출되는 함수
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // 로그인된 경우
-                document.getElementById("loginButton").style.display = "none"; // 로그인 버튼 숨기기
-                document.getElementById("logoutButton").style.display = "block"; // 로그아웃 버튼 표시
-            } else {
-                // 로그인되지 않은 경우
-                document.getElementById("loginButton").style.display = "block"; // 로그인 버튼 표시
-                document.getElementById("logoutButton").style.display = "none"; // 로그아웃 버튼 숨기기
-            }
-        });
-
-        // 로그아웃 버튼 클릭 시
-        document.getElementById("logoutButton").addEventListener("click", () => {
-            signOut(auth).then(() => {
-                window.location.href = "https://luxeret.com"; // 로그아웃 후 리다이렉트
-            }).catch((error) => {
-                console.error("로그아웃 실패:", error);
-            });
-        });
-
-        // 구글 로그인 버튼 클릭 시
-        document.getElementById("googleLogin").addEventListener("click", () => {
+        // Google 로그인 버튼 클릭 이벤트
+        googleLoginButton.addEventListener("click", () => {
             const provider = new GoogleAuthProvider();
             signInWithPopup(auth, provider)
                 .then((result) => {
                     const user = result.user;
-                    console.log('로그인 성공:', user);
-                    window.location.href = "https://luxeret.com/admin"; // 로그인 후 리다이렉트
+                    const userEmail = user.email;
+
+                    // 특정 이메일 확인
+                    if (userEmail === "team.luxeret@gmail.com") {
+                        window.location.href = "https://luxeret.com/portal-admin";
+                    } else {
+                        // 잘못된 계정인 경우 HTML 경고 메시지 표시
+                        errorMessage.style.display = "block";
+                        signOut(auth); // 로그아웃 처리
+                    }
                 })
                 .catch((error) => {
                     console.error("로그인 실패:", error);
                 });
         });
-    };
 
-</script>
+        // 로그아웃 버튼 클릭 이벤트
+        logoutButton.addEventListener("click", () => {
+            signOut(auth)
+                .then(() => {
+                    window.location.href = "https://luxeret.com";
+                })
+                .catch((error) => {
+                    console.error("로그아웃 실패:", error);
+                });
+        });
+
+        // 인증 상태 변경 처리
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const userEmail = user.email;
+
+                if (userEmail === "team.luxeret@gmail.com") {
+                    googleLoginButton.style.display = "none"; // 로그인 버튼 숨기기
+                    logoutButton.style.display = "block"; // 로그아웃 버튼 표시
+                } else {
+                    errorMessage.style.display = "block"; // 경고 메시지 표시
+                    signOut(auth); // 로그아웃 처리
+                }
+            } else {
+                googleLoginButton.style.display = "block"; // 로그인 버튼 표시
+                logoutButton.style.display = "none"; // 로그아웃 버튼 숨기기
+                errorMessage.style.display = "none"; // 경고 메시지 숨기기
+            }
+        });
+    </script>
+</body>
+</html>
+    
 
 
 
