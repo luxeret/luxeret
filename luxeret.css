@@ -160,6 +160,29 @@ color: #ffffff;
   display: block;
 }
 
+.business-check {
+  display: inline-block;
+  background-color: #444;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 10px; /* 둥근 모서리 */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.business-check:hover {
+  background-color: #666;
+}
+
+button:focus, a:focus {
+  outline: 2px dashed #fdfdfd; /* 검정 점선 테두리 */
+}
+
+*:focus {
+  outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
+}
+
+
 .banner {
   position: relative;
   width: 100%;
