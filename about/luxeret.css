@@ -2764,7 +2764,7 @@ html {
     aspect-ratio: 3 / 4;
     background-color: var(--black);
     color: var(--white--primary);
-    background-image: url("https://ifh.cc/g/Aj5AFJ.png");
+    background-image: url("/assets/image/team-1.png");
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2775,15 +2775,15 @@ html {
   }
   
   .benefits-card.second {
-    background-image: url("https://ifh.cc/g/JSm0al.png");
+    background-image: url("/assets/image/team-2.png");
   }
   
   .benefits-card.third {
-    background-image: url("https://ifh.cc/g/wg9GC4.png");
+    background-image: url("/assets/image/team-3.png");
   }
   
   .benefits-card.fourth {
-    background-image: url("https://ifh.cc/g/tb0lRf.png");
+    background-image: url("/assets/image/team-4.png");
   }
   
   .benefits-icon {
