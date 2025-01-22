@@ -2928,30 +2928,32 @@ html {
     padding-right: 16px;
     display: flex;
     position: fixed;
-    top: 0%;
-    bottom: auto;
-    left: 0%;
-    right: 0%;
-  }
-  
-  .nav-wrapper {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav-wrapper {
     background-color: var(--white--primary);
     box-shadow: 0 -1px 0 0 var(--gray--secondary), 0 1px 3px 0 var(--gray--secondary), inset 0 0 0 1px var(--gray--secondary);
     border-radius: 1000px;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 540px;
-    padding: 16px 16px 16px 24px;
+    width: 30%; /* 가로 길이 100% */
+    max-width: 1000px; /* 최대 가로 길이 설정 */
+    padding: 16px 24px;
     display: flex;
-  }
+}
+
   
-  .nav-menu {
-    grid-column-gap: 16px;
-    grid-row-gap: 16px;
-    align-items: center;
-    display: flex;
-  }
+.nav-menu {
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end; /* 메뉴 항목들을 오른쪽 정렬 */
+  width: 90%; /* 메뉴가 가로로 꽉 차게 */
+}
   
   .nav-link {
     transition: color .2s;

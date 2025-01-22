@@ -3410,10 +3410,10 @@ html {
 #accountManagement {
   width: 90%;
   max-width: 600px;
-  margin: 50px auto;
+  margin: 100px auto 50px auto;
   background-color: #fff;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -3425,7 +3425,7 @@ h1, h2 {
 
 button {
   padding: 12px 25px;
-  background-color: #007bff;
+  background-color: #181818;
   color: white;
   border: none;
   border-radius: 6px;
@@ -3436,7 +3436,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #383838;
 }
 
 button:disabled {
@@ -3445,7 +3445,7 @@ button:disabled {
 }
 
 #logoutButton {
-  background-color: #f44336;
+  background-color: #000000;
 }
 
 #notifications {
@@ -3466,6 +3466,36 @@ button:disabled {
 
 #emailPreferences {
   margin-top: 20px;
+}
+
+#emailNotificationButtons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.action-button {
+  padding: 9px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 37%;
+  color: white;
+}
+
+#emailReject {
+  background-color: #181818;
+}
+
+.action-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.action-button:hover:not(:disabled) {
+  opacity: 0.9;
 }
 
 #deleteAccount {
@@ -3507,19 +3537,91 @@ input[type="checkbox"] {
 }
 
 .confirm-button {
-  background-color: #28a745;
+  background-color: #1f1f1f;
   color: white;
 }
 
 .confirm-button:hover {
-  background-color: #218838;
+  background-color: #3a3a3a;
 }
 
 .cancel-button {
-  background-color: #dc3545;
+  background-color: #292929;
   color: white;
 }
 
 .cancel-button:hover {
-  background-color: #c82333;
+  background-color: #3a3a3a;
+}
+
+@media (max-width: 768px) {
+  #accountManagement {
+    width: 95%;
+    padding: 20px;
+    margin: 60px auto 30px auto;
+  }
+
+  h1, h2 {
+    font-size: 1.3rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  #emailNotificationButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-button {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .confirm-button, .cancel-button {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+
+  #accountManagement {
+    padding: 15px;
+    margin: 40px auto 20px auto;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  #emailNotificationButtons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .action-button {
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .confirm-button, .cancel-button {
+    width: 100%;
+    padding: 12px 0;
+  }
 }
