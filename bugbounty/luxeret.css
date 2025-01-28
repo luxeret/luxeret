@@ -104,8 +104,7 @@ header {
   margin: 7rem auto 2rem;
   padding: 2rem;
   background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 section {
@@ -311,66 +310,76 @@ footer {
 .hall-of-fame {
   margin: 30px 0;
   padding: 20px;
-  background-color: #e7e7e7;
+  background-color: #f3f3f3;
   border-radius: 8px;
 }
 
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .leaderboard {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 16px;
 }
 
-.leaderboard li {
-  display: flex;
-  justify-content: space-between;
+.leaderboard th, .leaderboard td {
   padding: 10px;
-  border-bottom: 1px solid #000000;
+  border: 1px solid #000000;
 }
 
-.leaderboard li:last-child {
-  border-bottom: none;
-}
-
-.rank {
+.leaderboard th {
+  background-color: #e0e0e0;
   font-weight: bold;
 }
 
-.user-name {
-  flex-grow: 1;
+.leaderboard td a {
+  color: #007bff;
+  text-decoration: none;
 }
 
-.report-date, .points {
-  font-size: 14px;
+.leaderboard td a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-  .leaderboard li {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .leaderboard li span {
-      margin-bottom: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hall-of-fame {
-      padding: 15px;
+  .leaderboard {
+      font-size: 14px;
   }
 
   h1 {
       font-size: 20px;
   }
 
-  .rank, .user-name, .report-date, .points {
-      font-size: 14px;
+  .leaderboard th, .leaderboard td {
+      padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hall-of-fame {
+      padding: 10px;
+  }
+
+  h1 {
+      font-size: 18px;
+      margin-bottom: 15px;
+  }
+
+  .leaderboard {
+      font-size: 12px;
+  }
+
+  .leaderboard th, .leaderboard td {
+      padding: 6px;
+  }
+
+  .leaderboard th, .leaderboard td {
+      word-break: break-word;
   }
 }
 
