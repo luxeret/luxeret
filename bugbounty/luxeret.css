@@ -208,22 +208,7 @@ footer {
       margin-top: 7px;
   }
 
-  .mobile-version {
-      display: none;
-  }
 
-  .pc-version {
-      display: block;
-  }
-
-  @media (max-width: 768px) {
-      .pc-version {
-          display: none;
-      }
-
-      .mobile-version {
-          display: block;
-      }
 
       .container {
           max-width: 900px;
@@ -233,7 +218,8 @@ footer {
           border-radius: 10px;
       }
   }
-}
+
+
 
 .popup {
   display: none;
