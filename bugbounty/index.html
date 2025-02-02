@@ -66,14 +66,14 @@
                 <div class="g-recaptcha" data-sitekey="6LcNacUqAAAAAMX7Ywy0vFU6GaeMOiwgcC2q9UPA"></div>
     
                 <button type="submit">제보 제출</button>
-                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                
 
             </form>
         </div>
     </div>
     
 
-
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <script>
 
@@ -102,82 +102,93 @@ function closePopupOutside(event) {
 async function submitReport(event) {
     event.preventDefault();
 
-    var name = document.getElementById("name").value;
-    var vulnerability = document.getElementById("vulnerability").value;
-    var evidence = document.getElementById("evidence").value;
-    var contact = document.getElementById("contact").value;
-    var image = document.getElementById("image").files[0];
+    // 폼 데이터 가져오기
+    const name = document.getElementById("name").value;
+    const vulnerability = document.getElementById("vulnerability").value;
+    const evidence = document.getElementById("evidence").value;
+    const contact = document.getElementById("contact").value;
+    const imageFile = document.getElementById("image").files[0];
 
-
-    var recaptchaResponse = grecaptcha.getResponse();
-
-
-    if (recaptchaResponse === "") {
+    // reCAPTCHA 확인
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
         alert("reCAPTCHA를 완료해 주세요.");
         return;
     }
 
-
-    var formData = new FormData();
-    formData.append("name", name);
-    formData.append("vulnerability", vulnerability);
-    formData.append("evidence", evidence);
-    formData.append("contact", contact);
-    formData.append("image", image); 
-    formData.append("recaptcha_response", recaptchaResponse);
-
-    // 웹훅 URL
-    const webhookUrl = 'https://discord.com/api/webhooks/1333640967131103303/Y_QlqIo0YXWd22DnpuKl8yv9i3Z-9H3g-mCrcgg4RyuVEYD5S89S_Kg_H-F5BrKpUBu6';
-
-
-    const webhookBody = {
-        username: "Bug Report",
-        embeds: [{
-            title: "버그 제보 내용",
-            color: 16711680,
-            fields: [
-                {
-                    name: "제보자 이름",
-                    value: name || "정보 없음",
-                    inline: false
-                },
-                {
-                    name: "발견한 취약점",
-                    value: vulnerability || "정보 없음",
-                    inline: false
-                },
-                {
-                    name: "증빙 자료 URL",
-                    value: evidence || "정보 없음",
-                    inline: false
-                },
-                {
-                    name: "연락처",
-                    value: contact || "정보 없음",
-                    inline: false
-                }
-            ],
-            image: {
-                url: image ? URL.createObjectURL(image) : null
+    // Discord 웹훅에 전송할 embed 객체 구성
+    const embed = {
+        title: "버그 내용 머시깽이",
+        color: 16711680, // 10진수 색상 (빨강)
+        fields: [
+            {
+                name: "제보자 이름",
+                value: name || "정보 없음",
+                inline: false
+            },
+            {
+                name: "발견한 취약점",
+                value: vulnerability || "정보 없음",
+                inline: false
+            },
+            {
+                name: "증빙 자료 URL",
+                value: evidence || "정보 없음",
+                inline: false
+            },
+            {
+                name: "연락처",
+                value: contact || "정보 없음",
+                inline: false
             }
-        }]
+        ]
     };
 
-    try {
+    // 이미지 파일이 첨부된 경우, embed에 이미지 객체 추가
+    // Discord는 파일 첨부 시 "attachment://파일명" 형식의 URL을 사용합니다.
+    if (imageFile) {
+        embed.image = { url: `attachment://${imageFile.name}` };
+    }
 
-        const response = await fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(webhookBody),
-        });
+    // 웹훅에 전송할 전체 페이로드 구성
+    const webhookPayload = {
+        content: "",
+        embeds: [embed],
+        username: "버그 머시깽이"
+    };
+
+    // Discord 웹훅 URL (여기서는 하드코딩된 URL 사용)
+    const webhookUrl = 'https://discord.com/api/webhooks/1333640967131103303/Y_QlqIo0YXWd22DnpuKl8yv9i3Z-9H3g-mCrcgg4RyuVEYD5S89S_Kg_H-F5BrKpUBu6';
+
+    try {
+        let response;
+
+        if (imageFile) {
+            // 이미지 파일이 있을 경우, FormData를 사용해 파일과 payload를 함께 전송합니다.
+            const formData = new FormData();
+            formData.append("payload_json", JSON.stringify(webhookPayload));
+            formData.append("file", imageFile, imageFile.name);
+
+            response = await fetch(webhookUrl, {
+                method: "POST",
+                body: formData
+            });
+        } else {
+            // 이미지 없이 단순 JSON으로 전송할 경우
+            response = await fetch(webhookUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(webhookPayload)
+            });
+        }
 
         if (response.ok) {
             alert("제보가 성공적으로 제출되었습니다.");
-            closePopup(); 
+            closePopup(); // 제출 후 팝업 닫기 (해당 함수는 별도로 정의되어 있어야 합니다)
         } else {
-            throw new Error('웹훅 전송 실패');
+            throw new Error("웹훅 전송 실패");
         }
     } catch (error) {
         console.error("Error submitting report:", error);
