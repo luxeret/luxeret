@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리다이렉트 중</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .message {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">로그인 페이지로 이동중...</div>
+  <script>
+    setTimeout(function() {
+      window.location.href = 'https://accounts.luxeret.com/';
+    }, 300);
+  </script>
+</body>
+</html>
