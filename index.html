@@ -20,6 +20,20 @@
 <meta name="theme-color" content="#ffffff">
 </head>
 <script>
+
+    // 메인 페이지에서만 리다이렉트 처리
+if (window.location.pathname === '/') {
+    window.location.replace('https://luxeret.com/503');
+}
+
+// 다른 모든 페이지도 리다이렉트
+window.onload = function() {
+    const paths = ['/about', '/login', '/contact', '/dashboard']; // 추가할 경로들
+    if (paths.includes(window.location.pathname)) {
+        window.location.replace('https://luxeret.com/503');
+    }
+};
+
   
     window.addEventListener('scroll', function() {
       var footer = document.querySelector('.footer');
