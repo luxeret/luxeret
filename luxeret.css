@@ -3404,3 +3404,24 @@ html {
 }
 
 
+
+
+@media screen and (max-width: 1024px) {
+  .page-wrapper {
+      display: none;
+  }
+
+  .mobile_popup {
+      display: flex;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .page-wrapper {
+      display: block;
+  }
+
+  .mobile_popup {
+      display: none;
+  }
+}
