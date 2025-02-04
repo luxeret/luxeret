@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트원 연동 테스트입니다. </title>
+    <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+</head>
+<body>
+    <h1>털꺼 없으니까 고스란히 나가주시면 됩니다 ㅎㅎ</h1>
+    <button onclick="requestPayment()"></button>
+</body>
+<script>
+function guid() {
+  function _s4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+  return _s4() + _s4() + _s4() + _s4() + _s4() + _s4();
+}
+
+async function requestPayment() {
+    const paymentId= guid()
+    const response = await PortOne.requestPayment({
+        // Store ID 설정
+        storeId: "store-34527ebe-4cd9-4cd3-82cb-6849fe64fb1a",
+        // 채널 키 설정
+        channelKey: "channel-key-1fa12dd1-bd9c-4e89-b6ae-622f804132a4",
+        paymentId: paymentId,
+        orderName: "맴ㅂㅓ쉽",
+        totalAmount: 1000,
+        currency: "CURRENCY_KRW",
+        payMethod: "CARD",
+    });
+  
+    if (response.code !== undefined) {
+      // 오류 발생
+      return alert(response.message);
+    }
+  
+    // /payment/complete 엔드포인트를 구현해야 합니다. 다음 목차에서 설명합니다.
+    const notified = await fetch(`http://175.205.39.11:3000/payment/complete`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // paymentId와 주문 정보를 서버에 전달합니다
+      body: JSON.stringify({
+        paymentId: paymentId, 
+        order: 1000
+        // 주문 정보...
+      }),
+    });
+  }</script>
+</html>
