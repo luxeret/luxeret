@@ -176,7 +176,7 @@
                         <div class="features-content">
                             <img src="/assets/image/icon-2.png" loading="lazy" width="50" alt="무한 아이콘"/>
                             <h2>무한한 가능성으로</h2>
-                            <p class="features-description">가득 찬 내일을 향해, 오늘도 힘차게 발걸음을 내딛고 있습니다.</p>
+                            <p class="features-description">가득 찬 내일을 향해, 오늘도 힘차게 <br>발걸음을 내딛고 있습니다.</p>
                             <p class="features-description"></p>
                         </div>
                     </div>
@@ -185,19 +185,61 @@
 
 
 
+
+
+
             <section class="section cta-section">
                 <div class="container">
-                    <div class="cta-wrapper">
-                        <img src="/assets/image/sub-logo.png" loading="lazy" width="102" alt="룩세렛 서브 로고" class="hero-logo"/>
-                        <h1>룩세렛</h1>
-                        <p class="hero-description">다양한 소식을 누구보다 빠르게!</p>
-                        <a href="https://discord.gg/KTpTutNnMY" target="_blank" class="button-primary w-inline-block">
-                            <img src="https://cdn.prod.website-files.com/65bf7d3d6bb1c09b8e01a7d0/65bf8414ab3fd8f47c85e800_arrow-down-circle-1.svg" loading="lazy" alt="" class="button-arrow"/>
-                            <div>공식커뮤니티</div>
-                        </a>
-                    </div>
+                    <div class="cta-banner-wrapper">
+                        <div class="cta-banner" id="banner1">
+                            <img src="/assets/image/sub-logo.png" loading="lazy" width="102" alt="룩세렛 서브 로고" class="hero-logo"/>
+                            <h3>룩세렛</h3>
+                            <p class="hero-description">다양한 소식을 누구보다 빠르게!</p>
+                            <a href="https://discord.gg/KTpTutNnMY" target="_blank" class="button-primary w-inline-block">
+                                <img src="https://cdn.prod.website-files.com/65bf7d3d6bb1c09b8e01a7d0/65bf8414ab3fd8f47c85e800_arrow-down-circle-1.svg" loading="lazy" alt="" class="button-arrow"/>
+                                <div>공식커뮤니티</div>
+                            </a>
+                        </div>
+                        <div class="cta-banner" id="banner2">
+                            <img src="/assets/image/membership.png" loading="lazy" width="102" alt="룩세렛 멤버십 로고" class="hero-logo"/>
+                            <h3>룩세렛 멤버십</h3>
+                            <p class="hero-description">다양하고 많은 혜택을 한번에!</p>
+                            <a href="https://luxeret.com/membership" target="_blank" class="button-primary w-inline-block">
+                                <img src="https://cdn.prod.website-files.com/65bf7d3d6bb1c09b8e01a7d0/65bf8414ab3fd8f47c85e800_arrow-down-circle-1.svg" loading="lazy" alt="" class="button-arrow"/>
+                                <div>가입하기</div>
+                            </a>
+                        </div>
+                    <div class="page-indicator" id="page-indicator">1/2</div>
                 </div>
             </section>
+            
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let currentIndex = 0;
+                const banners = document.querySelectorAll(".cta-banner");
+                const pageIndicator = document.getElementById("page-indicator");
+                
+                function showBanner(index) {
+                    banners.forEach((banner, i) => {
+                        banner.classList.remove("active");
+                        if (i === index) {
+                            banner.classList.add("active");
+                        }
+                    });
+                    pageIndicator.textContent = `${index + 1}/2`;
+                }
+                
+                function nextBanner() {
+                    currentIndex = (currentIndex + 1) % banners.length;
+                    showBanner(currentIndex);
+                }
+                
+                showBanner(currentIndex);
+                setInterval(nextBanner, 5000);
+            });
+            </script>
+            
+            
             <div class="footer">
                 <div class="info">
                     <span><strong>룩세렛 대표이사 : 김태준</strong></span>
