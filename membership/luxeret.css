@@ -1,0 +1,250 @@
+@font-face {
+    font-family: 'Pretendard-Medium';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Pretendard-ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  body {
+    font-family: Pretendard-Regular;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+    width: 428px;
+    max-width: 90%;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #222;
+  }
+
+  .section {
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-family: Pretendard-ExtraBold;
+  }
+
+  .membership-box {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .membership-box h3 {
+    color: #fff;
+    font-size: 20px;
+    font-family: Pretendard-Bold;
+    margin-bottom: 10px;
+  }
+
+  .membership-box .price {
+    font-size: 18px;
+    color: #fff;
+    font-family: Pretendard-Bold;
+    margin-bottom: 10px;
+  }
+
+  .membership-box .select-button {
+    background-color: #555;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Pretendard-Bold';
+    width: 100%;
+    text-align: center;
+  }
+
+  .membership-box .select-button:hover {
+    background-color: #666;
+  }
+
+  .price-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: -3px;
+    padding: 15px;
+    background-color: #666;
+    color: #fff;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+
+  .price-box strong {
+    font-size: 22px;
+    margin-right: 2px;
+  }
+
+  .price-box .price-note {
+    font-size: 12px;
+    color: #aaa;
+    margin-left: 2px;
+  }
+
+  .price-box .coupon-button {
+    background-color: #444;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    width: auto;
+    margin-left: auto;
+    font-family: 'Pretendard-Bold';
+  }
+
+  .price-box .coupon-button:hover {
+    background-color: #555;
+  }
+
+  .pay-button {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 20px;
+    font-family: Pretendard-Bold;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pay-button:hover {
+    background-color: #f3f3f3;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .box {
+      width: 100%;
+      padding: 20px;
+    }
+
+    .membership-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .membership-box h3 {
+      font-size: 18px;
+    }
+
+    .membership-box .price {
+      font-size: 16px;
+    }
+
+    .membership-box .select-button {
+      padding: 6px 12px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .price-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pay-button {
+      font-size: 18px;
+      padding: 10px;
+    }
+
+    .footer {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .box {
+      padding: 15px;
+    }
+
+    .membership-box {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px;
+    }
+
+    .pay-button {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }

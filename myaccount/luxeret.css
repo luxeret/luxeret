@@ -3348,7 +3348,6 @@ html {
 
 
 
-/* 기본 레이아웃 (PC용) */
 .page-wrapper {
   display: block; /* 기본적으로 페이지 내용이 보이도록 */
 }
@@ -3400,6 +3399,28 @@ html {
 
   .menu_item:hover {
     opacity: 0.8;
+  }
+}
+
+/* 태블릿(가로 및 세로 방향 모두 포함) */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .page-wrapper {
+    display: none; /* 기존 네비게이션 숨김 */
+  }
+
+  .mobile_popup {
+    display: flex; /* 모바일 전용 네비게이션 표시 */
+  }
+}
+
+/* 데스크탑(1281px 이상) */
+@media screen and (min-width: 1281px) {
+  .page-wrapper {
+    display: block;
+  }
+
+  .mobile_popup {
+    display: none;
   }
 }
 
@@ -3624,4 +3645,24 @@ input[type="checkbox"] {
     width: 100%;
     padding: 12px 0;
   }
+}
+
+#membershipLevel {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #c0c0c0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+}
+
+#membershipLevel h2 {
+  font-size: 1.3rem;
+  color: rgb(226, 226, 226)000;
+  margin-bottom: 10px;
+}
+
+#userMembership {
+  font-size: 1.1rem;
+  font-weight: bold;
 }
