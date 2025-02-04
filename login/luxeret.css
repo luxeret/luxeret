@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'NanumSquareNeoBold';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Medium';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Light';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-ExtraLight';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Bold';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-ExtraBold';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  height: 100vh;
+  background-color: #121212;
+  color: #fff;
+  font-family: Pretendard-ExtraBold
+}
+.left {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: linear-gradient(135deg, #ffffff, #797979, #3d3d3d);
+}
+
+.right {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgb(22, 22, 22), #2e2e2e);
+  text-align: center;
+  flex-direction: column;
+}
+
+.right h2{
+  font-size: 35px;
+}
+
+.login-box {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-box h1 {
+  font-size: 28px; /* 기존 24px → 28px */
+  margin-bottom: 25px; /* 기존 20px → 25px */
+}
+.login-box p {
+  margin-bottom: 35px; /* 기존 30px → 35px */
+}
+.social-login {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px; /* 기존 10px → 12px */
+}
+.social-login button {
+  padding: 14px; /* 기존 12px → 14px */
+  font-size: 18px; /* 기존 16px → 18px */
+  border-radius: 30px;
+  width: 100%;
+  font-family: Pretendard-Bold
+}
+
+
+
+
+.social-login button img {
+  margin-right: 8px;
+}
+.social-login button:hover {
+  transform: scale(1.05);
+}
+#googleLogin {
+  background-color: #fff;
+  color: #000;
+}
+#githubLogin {
+  background-color: #fff;
+  color: #000;
+}
+@media (max-width: 768px) {
+  .right {
+      display: none;
+  }
+  .left {
+      width: 100%;
+  }
+}
