@@ -138,7 +138,7 @@ window.onload = function () {
             document.getElementById("userInfo").style.display = "block";
             document.getElementById("userName").textContent = `사용자: ${user.displayName}`;
             document.getElementById("userEmail").textContent = `이메일: ${user.email}`;
-            let roleToAdd
+            let roleToAdd = '없음'
             const userRef = ref(db, "users/" + user.uid);
             get(userRef).then((snapshot) => {
             switch (snapshot.val().membership) {
@@ -319,7 +319,7 @@ onAuthStateChanged(auth, (user) => {
         
         <div id="membershipLevel">
             <h2>멤버십 등급</h2>
-            <p id="userMembership">등급: <span id="membershipStatus">없음</span></p>
+            <p id="userMembership">등급: <span id="membershipStatus">로딩중..</span></p>
         </div>
 
         <div id="notifications">
