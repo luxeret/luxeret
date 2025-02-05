@@ -141,42 +141,12 @@
         const auth = getAuth();
         auth.languageCode = "ko";
     
-        // Google 로그인 버튼 클릭 시
-        document.getElementById("googleLogin").addEventListener("click", () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const credential = GoogleAuthProvider.credentialFromResult(result);
-                    const token = credential.accessToken;
-                    const user = result.user;
-    
-                    // 로그인 후 luxeret.com으로 리다이렉트
-                    window.location.href = "http://127.0.0.1:5500/myaccount/index.html";
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        });
-    
-         // Github 로그인 버튼 클릭 시
-         document.getElementById("githubLogin").addEventListener("click", () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const credential = GoogleAuthProvider.credentialFromResult(result);
-                    const token = credential.accessToken;
-                    const user = result.user;
-    
-                    // 로그인 후 luxeret.com으로 리다이렉트
-                    window.location.href = "http://127.0.0.1:5500/myaccount/index.html";
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        });
-    import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+    import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
     import { getDatabase, ref, get, set, child, update, remove, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
     const db = getDatabase()
 async function sendTokenToServer(user) {
+    console.log("dd")
     const idToken = await user.getIdToken();
     
     fetch("http://175.205.39.11:3000/auth/login", {  // 서버 엔드포인트
@@ -209,60 +179,18 @@ async function sendTokenToServer(user) {
                 const userRef = ref(db, "users/" + user.uid);
                 console.log(userRef)
                 get(userRef).then((snapshot) => {
+                    console.log(snapshot.exists())
                     if (!snapshot.exists()) {
                         console.log("ㅇㅇㅇ")
                         sendTokenToServer(user);
                     }
                 })
                 // 로그인된 경우
-                document.getElementById("loginButton").style.display = "none"; // 로그인 버튼 숨기기
-                document.getElementById("logoutButton").style.display = "block"; // 로그아웃 버튼 표시
-            } else {
-                // 로그인되지 않은 경우
-                document.getElementById("loginButton").style.display = "block"; // 로그인 버튼 표시
-                document.getElementById("logoutButton").style.display = "none"; // 로그아웃 버튼 숨기기
+
             }
         });
-    
-        // 로그아웃 버튼 클릭 시
-        document.getElementById("logoutButton").addEventListener("click", () => {
-            signOut(auth).then(() => {
-                window.location.href = "/"; // 로그아웃 후 리다이렉트
-            }).catch((error) => {
-                console.error("로그아웃 실패:", error);
-            });
-        });
-    
-        // 구글 로그인 버튼 클릭 시
-        document.getElementById("googleLogin").addEventListener("click", () => {
-            const provider = new GoogleAuthProvider();
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const user = result.user;
-                    console.log('로그인 성공:', user);
-                    window.location.href = "/myaccount/index.html"; // 로그인 후 리다이렉트
-                })
-                .catch((error) => {
-                    console.error("로그인 실패:", error);
-                });
-        });
+
     };
-    
-         // Github 로그인 버튼 클릭 시
-         document.getElementById("githubLogin").addEventListener("click", () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const credential = GoogleAuthProvider.credentialFromResult(result);
-                    const token = credential.accessToken;
-                    const user = result.user;
-    
-                    // 로그인 후 luxeret.com으로 리다이렉트
-                    window.location.href = "/myaccount/index.html";
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        });
     
     </script>
 </body>
