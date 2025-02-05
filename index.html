@@ -149,7 +149,7 @@ async function sendTokenToServer(user) {
     console.log("dd")
     const idToken = await user.getIdToken();
     
-    fetch("https://backend.luxeret.com:3000/auth/login", {  // 서버 엔드포인트
+    fetch("https://backend.luxeret.com/auth/login", {  // 서버 엔드포인트
         method: "POST",
         headers: {
             "Content-Type": "application/json"
