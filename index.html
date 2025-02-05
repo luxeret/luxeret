@@ -146,7 +146,7 @@
 
     const db = getDatabase()
 async function sendTokenToServer(user) {
-    console.log("로그입니다.")
+    console.log("dd")
     const idToken = await user.getIdToken();
     
     fetch("https://backend.luxeret.com/auth/login", {  // 서버 엔드포인트
@@ -169,7 +169,6 @@ async function sendTokenToServer(user) {
     .catch(error => console.error("서버 통신 오류:", error));
 }
     // 페이지가 완전히 로드된 후에 실행
-    window.onload = function () {
         const auth = getAuth();
 
 
@@ -180,7 +179,7 @@ async function sendTokenToServer(user) {
                 console.log(userRef)
                 get(userRef).then((snapshot) => {
                     if (!snapshot.exists()) {
-                        console.log("로그입니다.")
+                        console.log("ㅇㅇㅇ")
                         sendTokenToServer(user);
                     }
                 })
@@ -193,7 +192,14 @@ async function sendTokenToServer(user) {
                 document.getElementById("logoutButton").style.display = "none"; // 로그아웃 버튼 숨기기
             }
         });
-    }
+            // 로그아웃 버튼 클릭 시
+            document.getElementById("logoutButton").addEventListener("click", () => {
+            signOut(auth).then(() => {
+                window.location.href = "/"; // 로그아웃 후 리다이렉트
+            }).catch((error) => {
+                console.error("로그아웃 실패:", error);
+            });
+        });
     
 
     
