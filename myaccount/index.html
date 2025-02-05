@@ -140,6 +140,7 @@ window.onload = function () {
             document.getElementById("userEmail").textContent = `이메일: ${user.email}`;
             let roleToAdd = '없음'
             const userRef = ref(db, "users/" + user.uid);
+            console.log(userRef)
             get(userRef).then((snapshot) => {
             switch (snapshot.val().membership) {
                 case 0:
