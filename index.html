@@ -146,7 +146,7 @@
 
     const db = getDatabase()
 async function sendTokenToServer(user) {
-    console.log("dd")
+    console.log("로그입니다.")
     const idToken = await user.getIdToken();
     
     fetch("https://backend.luxeret.com/auth/login", {  // 서버 엔드포인트
@@ -179,18 +179,21 @@ async function sendTokenToServer(user) {
                 const userRef = ref(db, "users/" + user.uid);
                 console.log(userRef)
                 get(userRef).then((snapshot) => {
-                    console.log(snapshot.exists())
                     if (!snapshot.exists()) {
-                        console.log("ㅇㅇㅇ")
+                        console.log("로그입니다.")
                         sendTokenToServer(user);
                     }
                 })
                 // 로그인된 경우
-
+                document.getElementById("loginButton").style.display = "none"; // 로그인 버튼 숨기기
+                document.getElementById("logoutButton").style.display = "block"; // 로그아웃 버튼 표시
+            } else {
+                // 로그인되지 않은 경우
+                document.getElementById("loginButton").style.display = "block"; // 로그인 버튼 표시
+                document.getElementById("logoutButton").style.display = "none"; // 로그아웃 버튼 숨기기
             }
         });
-
-    };
+    }
     
 
     
