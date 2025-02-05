@@ -169,8 +169,6 @@ async function sendTokenToServer(user) {
     .catch(error => console.error("서버 통신 오류:", error));
 }
     // 페이지가 완전히 로드된 후에 실행
-        const auth = getAuth();
-
 
         // Firebase에서 인증 상태가 변경될 때마다 호출되는 함수
         onAuthStateChanged(auth, (user) => {
