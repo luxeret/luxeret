@@ -21,213 +21,213 @@
 </head>
 
 
- <!-- PortOne 결제 라이브러리 -->
- <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+  <!-- PortOne 결제 라이브러리 -->
+  <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 
- <!-- Firebase (v9 모듈) -->
- <script type="module">
-   
-   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
-   import {
-     getAuth,
-     signInWithPopup,
-     GoogleAuthProvider,
-     GithubAuthProvider,
-     onAuthStateChanged
-   } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-   
-   // ★ Realtime Database 관련 함수 v9
-   import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+  <!-- Firebase (v9 모듈) -->
+  <script type="module">
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+    import {
+      getAuth,
+      signInWithPopup,
+      GoogleAuthProvider,
+      GithubAuthProvider,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+    
+    // ★ Realtime Database 관련 함수 v9
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
-   // Firebase configuration
-   const firebaseConfig = {
-     apiKey: "AIzaSyCtfK5Ruowyl9Yz6FdeRB_QoDKMOCor_k8",
-     authDomain: "luxeret-login-porject.firebaseapp.com",
-     projectId: "luxeret-login-porject",
-     storageBucket: "luxeret-login-porject.firebasestorage.app",
-     messagingSenderId: "482593560249",
-     appId: "1:482593560249:web:936f2b13529866de462d68"
-   };
-   
-   // 1) 앱 초기화
-   const app = initializeApp(firebaseConfig);
-   const analytics = getAnalytics(app);
-   const auth = getAuth(app);
-   // 2) Database 인스턴스 준비 (v9)
-   const db = getDatabase(app);
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCtfK5Ruowyl9Yz6FdeRB_QoDKMOCor_k8",
+      authDomain: "luxeret-login-porject.firebaseapp.com",
+      projectId: "luxeret-login-porject",
+      storageBucket: "luxeret-login-porject.firebasestorage.app",
+      messagingSenderId: "482593560249",
+      appId: "1:482593560249:web:936f2b13529866de462d68"
+    };
+    
+    // 1) 앱 초기화
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    // 2) Database 인스턴스 준비 (v9)
+    const db = getDatabase(app);
 
-   // 결제 금액 저장용 변수
-   let currentPrice = 0; 
+    // 결제 금액 저장용 변수
+    let currentPrice = 0; 
 
-   // 임의 ID 생성 함수 (예: 주문번호)
-   function guid() {
-     function _s4() {
-       return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
-     }
-     return _s4() + _s4() + _s4() + _s4() +'0000';
-   }
+    // 임의 ID 생성 함수 (예: 주문번호)
+    function guid() {
+      function _s4() {
+        return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+      }
+      return _s4() + _s4() + _s4() + _s4() +'0000';
+    }
 
-   function requestIssueBillingKey() {
-     onAuthStateChanged(auth, async (user) => {
-       if (!user) {
-         window.location.href = "/login";
-       }
-     const reqBillingKey = await PortOne.requestIssueBillingKey({
-       storeId: "store-34527ebe-4cd9-4cd3-82cb-6849fe64fb1a",
-       channelKey: "channel-key-5e9bccc1-b6a5-4f8a-988a-4bb2497160d3",
-       billingKeyMethod: "CARD",
-       issueId: user.uid,
-       issueName: user.displayName,
-       customer: {
-         customerId: user.uid,
-         fullName: user.displayName,
-       },
-     });
-     if (reqBillingKey.code !== undefined) {
-       return alert(response.message);
-     }
-     console.log(reqBillingKey.billingKey)
-     const auth = getAuth();
-     const user1 = auth.currentUser;
-     const token = await user1.getIdToken(true);
-     // 결제 성공(결제창 닫힘) 시 서버에 완료 알림
-     const notified = await fetch(`https://backend.luxeret.com/payment/Billing`, {
-       method: "POST",
-       headers: { "Content-Type": "application/json" },
-       body: JSON.stringify({
-         token,
-         membershipPrice: currentPrice,
-         username: user1.displayName,
-         billingKey: reqBillingKey.billingKey
-         // 필요한 주문 정보...
-       }),
-     });
-     if (!notified) {
-       return alert("결제가 성공적으로 진행되지 않았습니다. 고객센터로 연락해주시기 바랍니다. (추가사유: 빌링키 발급후 서버 요청에 실패)")
-     } else {
-       return alert("결제가 성공적으로 완료되었습니다. 항상 저희 룩세렛 서비스를 이용해주셔서 감사합니다.")
-     }
-   })
-   }
+    function requestIssueBillingKey() {
+      onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+          window.location.href = "/login";
+        }
+      const reqBillingKey = await PortOne.requestIssueBillingKey({
+        storeId: "store-34527ebe-4cd9-4cd3-82cb-6849fe64fb1a",
+        channelKey: "channel-key-5e9bccc1-b6a5-4f8a-988a-4bb2497160d3",
+        billingKeyMethod: "CARD",
+        issueId: user.uid,
+        issueName: user.displayName,
+        customer: {
+          customerId: user.uid,
+          fullName: user.displayName,
+        },
+      });
+      if (reqBillingKey.code !== undefined) {
+        return alert(response.message);
+      }
+      console.log(reqBillingKey.billingKey)
+      const auth = getAuth();
+      const user1 = auth.currentUser;
+      const token = await user1.getIdToken(true);
+      // 결제 성공(결제창 닫힘) 시 서버에 완료 알림
+      const notified = await fetch(`https://backend.luxeret.com/payment/Billing`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token,
+          membershipPrice: currentPrice,
+          username: user1.displayName,
+          billingKey: reqBillingKey.billingKey
+          // 필요한 주문 정보...
+        }),
+      });
+      if (!notified) {
+        return alert("결제가 성공적으로 진행되지 않았습니다. 고객센터로 연락해주시기 바랍니다. (추가사유: 빌링키 발급후 서버 요청에 실패)")
+      } else {
+        return alert("결제가 성공적으로 완료되었습니다. 항상 저희 룩세렛 서비스를 이용해주셔서 감사합니다.")
+      }
+    })
+    }
 
-   // 결제 요청 함수
-   window.requestPayment = async function requestPayment() {
-     if (currentPrice === 0) {
-       alert("맴버쉽을 선택해주세요.");
-       return;
-     }
+    // 결제 요청 함수
+    window.requestPayment = async function requestPayment() {
+      if (currentPrice === 0) {
+        alert("멤버십을 선택해주세요.");
+        return;
+      }
 
-     onAuthStateChanged(auth, async (user) => {
-       if (!user) {
-         alert('로그인 후 이용해주세요')
-         window.location.href = "/login";
-       }
+      onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+          alert('로그인 후 이용해주세요')
+          window.location.href = "/login";
+        }
 
-     if (currentPrice === 1200 || currentPrice === 3200) {
-       if (!confirm(`정말로 구매하시겠습니까? (결제 금액: ${currentPrice}, 정기결제(말일마다))`)) {
-         alert("결제가 취소되었습니다. (사용자 취소)")
-         return
-       }
-       requestIssueBillingKey()
-       return
-     }
-     if (currentPrice === 11000 && !confirm(`정말로 구매하시겠습니까? (결제 금액: ${currentPrice})`)) {
-         alert("결제가 취소되었습니다. (사용자 취소)")
-         return
-       }
-     const paymentId = guid();
+      if (currentPrice === 3250 || currentPrice === 5900) {
+        if (!confirm(`정말로 구매하시겠습니까? (결제 금액: ${currentPrice}, 정기결제(말일마다))`)) {
+          alert("결제가 취소되었습니다. (사용자 취소)")
+          return
+        }
+        requestIssueBillingKey()
+        return
+      }
+      if (currentPrice === 31500 && !confirm(`정말로 구매하시겠습니까? (결제 금액: ${currentPrice})`)) {
+          alert("결제가 취소되었습니다. (사용자 취소)")
+          return
+        }
+      const paymentId = guid();
 
-     // PortOne 결제창 호출
-     const response = await PortOne.requestPayment({
-       storeId: "store-34527ebe-4cd9-4cd3-82cb-6849fe64fb1a",
-       channelKey: "channel-key-1fa12dd1-bd9c-4e89-b6ae-622f804132a4",
-       paymentId: paymentId + currentPrice,
-       orderName: "맴버쉽",
-       totalAmount: currentPrice,
-       currency: "CURRENCY_KRW",
-       payMethod: "CARD",
-     });
+      // PortOne 결제창 호출
+      const response = await PortOne.requestPayment({
+        storeId: "store-34527ebe-4cd9-4cd3-82cb-6849fe64fb1a",
+        channelKey: "channel-key-1fa12dd1-bd9c-4e89-b6ae-622f804132a4",
+        paymentId: paymentId + currentPrice,
+        orderName: "멤버십",
+        totalAmount: currentPrice,
+        currency: "CURRENCY_KRW",
+        payMethod: "CARD",
+      });
 
-     // 결제 중 오류 발생 시
-     if (response.code !== undefined) {
-       return alert(response.message);
-     }
-     const auth = getAuth();
-     const user1 = auth.currentUser;
-     const token = await user1.getIdToken(true);
-     // 결제 성공(결제창 닫힘) 시 서버에 완료 알림
-     const notified = await fetch(`https://backend.luxeret.com/payment/complete`, {
-       method: "POST",
-       headers: { "Content-Type": "application/json" },
-       body: JSON.stringify({
-         token,
-         paymentId: paymentId + currentPrice,
-         order: currentPrice,
-         membershipPrice: currentPrice
-         // 필요한 주문 정보...
-       }),
-     });
-     console.log("성공 ㅇ")
-     if (notified.ok) {
-       console.log("성공ㅇㅇ")
-       // ★ 결제 성공 시, DB에 기록 (v9 방식)
-       
+      // 결제 중 오류 발생 시
+      if (response.code !== undefined) {
+        return alert(response.message);
+      }
+      const auth = getAuth();
+      const user1 = auth.currentUser;
+      const token = await user1.getIdToken(true);
+      // 결제 성공(결제창 닫힘) 시 서버에 완료 알림
+      const notified = await fetch(`https://backend.luxeret.com/payment/complete`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token,
+          paymentId: paymentId + currentPrice,
+          order: currentPrice,
+          membershipPrice: currentPrice
+          // 필요한 주문 정보...
+        }),
+      });
+      console.log("성공 ㅇ")
+      if (notified.ok) {
+        console.log("성공ㅇㅇ")
+        // ★ 결제 성공 시, DB에 기록 (v9 방식)
+        
 
-       return alert("결제가 성공적으로 완료되었습니다. 항상 저희 룩세렛 서비스를 이용해주셔서 감사합니다.")
-       // 이후 페이지 이동, 멤버십 적용 로직 등...
-     } else {
-       alert("결제 후 서버 요청에 실패했습니다.");
-     }
-     });
-   }
+        return alert("결제가 성공적으로 완료되었습니다. 항상 저희 룩세렛 서비스를 이용해주셔서 감사합니다.")
+        // 이후 페이지 이동, 멤버십 적용 로직 등...
+      } else {
+        alert("결제 후 서버 요청에 실패했습니다.");
+      }
+      });
+    }
 
-   // 결제 금액 갱신 함수
-   window.updatePrice = function updatePrice(price, orderItem) {
-     currentPrice = price;
-     document.getElementById("orderItem").innerText = orderItem;
-     document.getElementById("original-price").innerText = `${currentPrice.toLocaleString()}원`;
-   }
+    // 결제 금액 갱신 함수
+    window.updatePrice = function updatePrice(price, orderItem) {
+      currentPrice = price;
+      document.getElementById("orderItem").innerText = orderItem;
+      document.getElementById("original-price").innerText = `${currentPrice.toLocaleString()}원`;
+    }
 
-   // ★ 예시로, 페이지 로드 시 DB에 테스트 기록 (원한다면 주석 처리)
-   // set(ref(db, "leegunhe1235@gmail.com/"), 2);
+    // ★ 예시로, 페이지 로드 시 DB에 테스트 기록 (원한다면 주석 처리)
+    // set(ref(db, "leegunhe1235@gmail.com/"), 2);
 
- </script>
+  </script>
 </head>
 <body>
- <div class="container">
-   <div class="box">
-     <div class="section">
-       <h2>룩세렛 멤버십</h2>
+  <div class="container">
+    <div class="box">
+      <div class="section">
+        <h2>룩세렛 멤버십</h2>
 
-       <div class="membership-box">
-         <h3>베이직 맴버쉽</h3>
-         <span class="price">1,200원/월</span>
-         <button class="select-button" onclick="updatePrice(1200, '베이직 맴버쉽')">고르기</button>
-       </div>
+        <div class="membership-box">
+          <h3>베이직 멤버십</h3>
+          <span class="price">3,250/월</span>
+          <button class="select-button" onclick="updatePrice(3250, '베이직 멤버십')">고르기</button>
+        </div>
 
-       <div class="membership-box">
-         <h3>프라임 멤버십</h3>
-         <span class="price">3,200원/월</span>
-         <button class="select-button" onclick="updatePrice(3200, '프라임 멤버십')">고르기</button>
-       </div>
+        <div class="membership-box">
+          <h3>프라임 멤버십</h3>
+          <span class="price">5,900원/월</span>
+          <button class="select-button" onclick="updatePrice(5900, '프라임 멤버십')">고르기</button>
+        </div>
 
-       <div class="membership-box">
-         <h3>프라임 영구 멤버십</h3>
-         <span class="price">11,000원/영구</span>
-         <button class="select-button" onclick="updatePrice(11000, '프라임 영구 멤버십')">고르기</button>
-       </div>
+        <div class="membership-box">
+          <h3>프라임 영구 멤버십</h3>
+          <span class="price">31,500원/6개월</span>
+          <button class="select-button" onclick="updatePrice(31500, '프라임 영구 멤버십')">고르기</button>
+        </div>
 
-       <div class="price-box" id="price-box">
-         <div>
-           <strong class="price" id="original-price">0원</strong>
-           <span class="price-note">(계정당)</span>
-           <span class="price-note">구매 상품: </span>
-           <span class="price-note" id="orderItem"></span>
-         </div>
-       </div>
+        <div class="price-box" id="price-box">
+          <div>
+            <strong class="price" id="original-price">0원</strong>
+            <span class="price-note">(계정당)</span>
+            <span class="price-note">구매 상품: </span>
+            <span class="price-note" id="orderItem"></span>
+          </div>
+        </div>
 
-       <button class="pay-button" onclick="requestPayment()">시작하기</button>
+        <button class="pay-button" onclick="requestPayment()">시작하기</button>
 
        <div class="footer">
         <a href="#">청약철회</a> |
@@ -237,7 +237,7 @@
         <br> <br>
         <a href="#">상호명 : 룩세렛</a> |
         <a href="#">룩세렛 대표이사 : 김태준</a> |
-        <a href="#">통신판매업 : : 2025-인천연수구-0263</a> |
+        <a href="#">통신판매업 : 2025-인천연수구-0263</a> |
         <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=8026800634">사업자등록번호 : 802-68-00634</a>
       </div>
     </div>
