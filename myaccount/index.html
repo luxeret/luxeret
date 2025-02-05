@@ -144,13 +144,13 @@ window.onload = function () {
             get(userRef).then((snapshot) => {
             switch (snapshot.val().membership) {
                 case 0:
-                  roleToAdd = "베이직 맴버쉽"; // 베이직 역할 ID
+                  roleToAdd = "베이직 멤버십"; // 베이직 역할 ID
                   break;
                 case 1:
-                  roleToAdd = "프라임 맴버쉽"; // 프라임 역할 ID
+                  roleToAdd = "프라임 멤버십"; // 프라임 역할 ID
                   break;
                 case 2:
-                  roleToAdd = "프라임 6개월 맴버쉽"; // 프라임 6개월 역할 ID
+                  roleToAdd = "프라임 6개월 멤버십"; // 프라임 6개월 역할 ID
                   break;
                 default:
                   roleToAdd = "없음";
