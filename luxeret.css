@@ -183,41 +183,9 @@ button:focus, a:focus {
 }
 
 
-.banner {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  animation: shrinkVideo 3s ease forwards;
-  border-radius: 20px;
-}
 
-.banner video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: 20px;
-  transform-origin: center center;
-  filter: blur(4px);
-}
 
-.banner-text {
-  position: absolute;
-  bottom: 35%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 70px;
-  font-family: Pretendard-ExtraBold;
-  text-align: center;
-  font-weight: bold;
-  line-height: 1.5;
-  z-index: 1;
-}
+
 
 .video-controls {
   position: absolute;
@@ -244,26 +212,7 @@ button:focus, a:focus {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-@media (max-width: 600px) {
-  .banner {
-    animation: none;
-    border-radius: 0;
-  }
 
-  .banner video {
-    border-radius: 0;
-  }
-
-  .banner-text {
-    font-size: 1.4rem;
-    padding: 0 10px;
-  }
-
-  .video-controls {
-    bottom: 10px; /* 모바일에서도 버튼을 아래로 이동 */
-    right: 10px; /* 모바일에서도 버튼을 오른쪽으로 이동 */
-  }
-}
 
 @keyframes shrinkVideo {
   0% {
@@ -3443,6 +3392,7 @@ html {
   height: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  color: #000;
 }
 
 .cta-banner.active {
@@ -3577,5 +3527,68 @@ h1 {
 
   .text-container img {
       display: none;
+  }
+}
+
+.menu-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+  top: 10px;
+  font-family: Pretendard-Regular;
+}
+
+.menu-container p {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: black;
+  font-family: Pretendard-Regular;
+}
+
+.menu-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0;
+  max-width: 100%;
+}
+
+.menu-options::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-option {
+  background-color: white;
+  border: 2px solid #dbdbdb;
+  border-radius: 20px; 
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  color: black; /* 글자 색을 검정색으로 변경 */
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
+  font-family: Pretendard-Regular;
+}
+
+@media (max-width: 768px) {
+  .menu-container {
+    width: 90%;
+  }
+
+  .menu-container p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .menu-options {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }
