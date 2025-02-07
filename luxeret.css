@@ -1,3 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
   font-family: 'NanumSquareNeoBold';
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
@@ -183,41 +201,9 @@ button:focus, a:focus {
 }
 
 
-.banner {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  animation: shrinkVideo 3s ease forwards;
-  border-radius: 20px;
-}
 
-.banner video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: 20px;
-  transform-origin: center center;
-  filter: blur(4px);
-}
 
-.banner-text {
-  position: absolute;
-  bottom: 35%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 70px;
-  font-family: Pretendard-ExtraBold;
-  text-align: center;
-  font-weight: bold;
-  line-height: 1.5;
-  z-index: 1;
-}
+
 
 .video-controls {
   position: absolute;
@@ -244,26 +230,7 @@ button:focus, a:focus {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-@media (max-width: 600px) {
-  .banner {
-    animation: none;
-    border-radius: 0;
-  }
 
-  .banner video {
-    border-radius: 0;
-  }
-
-  .banner-text {
-    font-size: 1.4rem;
-    padding: 0 10px;
-  }
-
-  .video-controls {
-    bottom: 10px; /* 모바일에서도 버튼을 아래로 이동 */
-    right: 10px; /* 모바일에서도 버튼을 오른쪽으로 이동 */
-  }
-}
 
 @keyframes shrinkVideo {
   0% {
@@ -2405,8 +2372,8 @@ html {
     padding-bottom: 160px;
   }
   
-  .section.features-gray {
-    background-color: #f9fafb;
+  .section.features-white {
+    background-color: #ffffff;
     padding-top: 160px;
     padding-bottom: 160px;
   }
@@ -3443,6 +3410,8 @@ html {
   height: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  color: #000;
+  border: 1px solid #e9e9e9;
 }
 
 .cta-banner.active {
@@ -3491,91 +3460,342 @@ h1 {
   box-sizing: border-box;
 }
 
-.video-text-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-  background-color: #f9fafb;
+
+
+
+.menu-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
   text-align: center;
+  margin-top: 30px; /* top: 10px;에서 margin-top: 30px;으로 변경 */
+  font-family: Pretendard-Regular;
 }
 
-.video-container {
-  width: 40%;
-  padding-top: 40%;
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 20px;
-  margin-left: 5%;
+.menu-container p {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: black;
+  font-family: Pretendard-Regular;
 }
 
-.video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.menu-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0;
+  max-width: 100%;
 }
 
-.text-container {
-  width: 55%;
-  padding: 20px;
-  height: auto;
-  margin-left: -9%;
+.menu-options::-webkit-scrollbar {
+  display: none;
 }
 
-.text-container h2 {
-  font-size: 35px;
-  margin-bottom: 10px;
-}
-
-.text-container p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-left: 4.9%;
-  color: #797979;
+.menu-option {
+  background-color: white;
+  border: 2px solid #dbdbdb;
+  border-radius: 20px; 
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  color: black; 
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
+  font-family: Pretendard-Regular;
 }
 
 @media (max-width: 768px) {
-  .video-text-section {
-      flex-direction: column;
-      justify-content: flex-start;
-      height: auto;
-      padding: 15px;
+  .menu-container {
+    width: 90%;
   }
 
-  .video-container,
-  .text-container {
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-      height: auto;
+  .menu-container p {
+    font-size: 20px;
+    margin-bottom: 10px;
   }
 
-  .video-container {
-      width: 280px;
-      height: 604px;
-      padding-top: 0;
-      margin-bottom: 15px;
-  }
-
-  .text-container h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-  }
-
-  .text-container p {
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #797979;
-      margin-left: 0;
-  }
-
-  .text-container img {
-      display: none;
+  .menu-options {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* 기본적으로 두 슬라이드 모두 보이지 않도록 설정 */
+.slides.pc, .slides.mobile {
+  display: none;
+}
+
+/* PC에서만 PC 슬라이드 보이게 */
+@media (min-width: 769px) {
+  .slides.pc {
+      display: flex;
+  }
+
+  /* PC에서만 < > 버튼 보이게 */
+  .controls button {
+      display: block;
+  }
+
+  /* PC에서만 슬라이더 모서리 둥글게 */
+  .slider {
+      border-radius: 12px;
+  }
+}
+
+/* 모바일에서만 모바일 슬라이드 보이게 */
+@media (max-width: 768px) {
+  .slides.mobile {
+      display: flex;
+  }
+
+  /* 모바일에서 < > 버튼 숨기기 */
+  .controls button {
+      display: none;
+  }
+
+  /* 모바일에서 모서리 둥글지 않게 */
+  .slider {
+      border-radius: 0;
+      transform: translateY(-20px);  /* 강제로 위로 이동 */
+  }
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    height: 600px;
+    margin: auto;
+    overflow: hidden;
+    top: 10px; /* 기존 top을 남겨두되, transform을 우선으로 사용 */
+}
+
+.slides {
+    display: flex;
+    width: 300%;  /* 슬라이드 개수를 3개로 변경하여 전체 너비를 300%로 설정 */
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 40px;
+}
+
+.controls button {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.controls button:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.bar {
+    width: 30px;
+    height: 5px;
+    background: rgb(0, 0, 0);
+    opacity: 0.5;
+    transition: width 0.3s ease-in-out;
+}
+
+.bar.active {
+    opacity: 1;
+    width: 50px;
+    background: #fff;
+}
+
+
+        /* 기본적으로 숨김 */
+        .mobile-header {
+          display: none;
+      }
+
+      /* 모바일 전용 (480px 이하) */
+      @media screen and (max-width: 480px) {
+          .mobile-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 15px;
+              background-color: #f8f9fa;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              position: fixed; /* 스크롤해도 고정 */
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 55px;
+              z-index: 1000; /* 다른 요소들 위에 표시 */
+              border-bottom: 1px solid rgb(94, 94, 94);
+          }
+
+          .mobile-header a {
+              display: flex;
+              align-items: center;
+              text-decoration: none; /* 링크 기본 스타일 제거 */
+          }
+
+          .mobile-header img {
+              height: 35px; /* 로고 크기 조정 */
+          }
+
+          /* 아이콘 스타일 */
+          #Person-Icon {
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+          }
+
+          #Person-Icon svg {
+              width: 30px;  /* 아이콘 크기 */
+              height: 30px;
+              fill: #333; /* 기본 색상 */
+              transition: fill 0.2s;
+          }
+
+          #Person-Icon:hover svg {
+              fill: #007bff; /* 호버 시 색 변경 */
+          }
+
+          /* 헤더가 고정되니까 본문이 가려지는 걸 방지 */
+          body {
+              padding-top: 60px;
+          }
+      }
+
+
+
+
+      .service-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+    }
+    .service-title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #222;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .service-subtitle {
+        color: #666;
+        font-size: 18px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .service-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    .service-item {
+        max-width: 340px;
+        padding: 20px;
+        border: 1px solid #e9e9e9;
+        background: #f8f9fa;
+        border-radius: 12px;
+        text-align: left;
+        
+    }
+    .service-item img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    .service-category {
+        font-size: 14px;
+        color: #4a90e2;
+        margin-bottom: 5px;
+    }
+    .service-name {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .service-description {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+    .service-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #5dbcea;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+        .service-list {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-item {
+            margin-bottom: 20px;
+        }
+        .service-title {
+
+          font-size: 30px;  
+        }
+
+        .service-subtitle {
+            font-size: 20px;  
+
+        }
+    }
