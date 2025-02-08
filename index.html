@@ -228,42 +228,12 @@
 </div>
 
 
+   
 
-   <!-- 메인섹션 -->  
-<section class="section features-white">
-    <div class="container">
-        <div class="features-wrapper">
-            <div class="features-image-wrapper">
-                <img src="/assets/image/main-sub1.png" loading="lazy" width="330" sizes="(max-width: 479px) 87vw, 330px" alt="우주선 이미지" class="features-image" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;">
-            </div>
-            <div class="features-content" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;">
-                <img src="/assets/image/icon-1.png" loading="lazy" width="50" alt="체스 아이콘">
-                <h2>끝 없는 도전과 열정</h2>
-                <p class="features-description">매번 다양한 도전과 새로운 시도를 통해 오늘보다 더 나은 내일을 위해 끊임없이 노력하고 있습니다.</p>
-                <p class="features-description"></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section features-white">
-    <div class="container">
-        <div class="features-wrapper reverse">
-            <div class="features-image-wrapper">
-                <img src="/assets/image/main-sub2.png" loading="lazy" width="330" sizes="(max-width: 479px) 87vw, 330px" alt="주사위 이미지" class="features-image" style="transform: translate3d(0px, 30px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 0;">
-            </div>
-            <div class="features-content" style="transform: translate3d(0px, 30px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 0;">
-                <img src="/assets/image/icon-2.png" loading="lazy" width="50" alt="무한 아이콘">
-                <h2>무한한 가능성으로</h2>
-                <p class="features-description">가득 찬 내일을 향해, 오늘도 힘차게 <br>발걸음을 내딛고 있습니다.</p>
-                <p class="features-description"></p>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
+   <!-- 메인섹션 -->  
    <!-- 서비스 소개 --> 
 <div class="service-container">
     <div class="service-title">여러분을 위한 룩세렛 서비스</div>
@@ -284,13 +254,142 @@
             <div class="service-description">3주 만에 대표님만의 홈페이지를 만나보세요.</div>
             <a href="https://webpin.luxeret.com" class="service-link">자세히보기</a>
         </div>
-
-        
-
+        <div class="service-item">
+            <img src="/assets/image/webpin-sub.png" alt="웹핀">
+            <div class="service-category">웹사이트 제작</div>
+            <div class="service-name">웹핀</div>
+            <div class="service-description">3주 만에 대표님만의 홈페이지를 만나보세요.</div>
+            <a href="https://webpin.luxeret.com" class="service-link">자세히보기</a>
+        </div>
 
     </div>
 </div>
 
+
+
+<style>
+    .main-banner-container {
+        width: 100%; /* 전체 너비로 설정 */
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+        margin: 0 auto; /* 중앙 정렬 */
+    }
+
+    .main-banner-wrapper {
+        display: flex;
+        width: max-content;
+        animation: main-scrollBanner 15s linear infinite;
+    }
+
+    .main-banner {
+        min-width: 300px;
+        margin-right: 15px;
+        padding: 20px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 1px solid #e9e9e9;
+    }
+
+    .main-banner img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .main-banner p {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    @keyframes main-scrollBanner {
+        0% {
+            transform: translateX(0); /* 시작은 첫 번째 배너가 보이도록 */
+        }
+        100% {
+            transform: translateX(-10%); /* 끝까지 이동하여 연결된 배너들이 끝나도록 */
+        }
+    }
+
+    .main-banner-container:hover .main-banner-wrapper {
+        animation-play-state: paused;
+    }
+
+    /* 모바일 반응형 스타일 */
+    @media (max-width: 768px) {
+        /* 모바일 화면에서 텍스트 크기와 배너 크기 조정 */
+        .service-title {
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .service-subtitle {
+            font-size: 14px;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .main-banner {
+            min-width: 250px; /* 작은 화면에서 배너 크기 줄이기 */
+            margin-right: 10px; /* 간격 좁히기 */
+            padding: 15px; /* 배너 안의 여백 조정 */
+        }
+
+        .main-banner p {
+            font-size: 12px; /* 텍스트 크기 줄이기 */
+        }
+
+        .main-banner-container {
+            padding: 10px 0; /* 모바일에서는 위아래 여백 추가 */
+        }
+
+        .main-banner-wrapper {
+            animation: main-scrollBanner 20s linear infinite; /* 애니메이션 속도 느리게 조정 */
+        }
+    }
+
+    /* 매우 작은 화면 (예: 스마트폰 세로 화면) */
+    @media (max-width: 480px) {
+        .service-title {
+            font-size: 18px;
+        }
+
+        .service-subtitle {
+            font-size: 12px;
+        }
+
+        .main-banner {
+            min-width: 200px; /* 배너 크기 더 줄이기 */
+            padding: 10px;
+        }
+
+        .main-banner p {
+            font-size: 10px; /* 텍스트 크기 더욱 줄이기 */
+        }
+    }
+</style>
+
+    </head>
+    
+    <body>
+        <div class="service-title">룩세렛 이야기 📅</div>
+    <div class="service-subtitle">최신 공식 이야기와 업데이트를 한눈에 만나보세요.</div>
+        <div class="main-banner-container">
+            <div class="main-banner-wrapper" id="main-bannerWrapper">
+                <div class="main-banner"><img src="https://ifh.cc/g/cmF4G4.png" alt="배너1"><p>룩세렛 서비스 1</p></div>
+                <div class="main-banner"><img src="https://ifh.cc/g/cmF4G4.png" alt="배너2"><p>룩세렛 서비스 2</p></div>
+                <div class="main-banner"><img src="https://ifh.cc/g/cmF4G4.png" alt="배너3"><p>룩세렛 서비스 3</p></div>
+                <div class="main-banner"><img src="https://ifh.cc/g/cmF4G4.png" alt="배너4"><p>룩세렛 서비스 4</p></div>
+                <div class="main-banner"><img src="https://ifh.cc/g/cmF4G4.png" alt="배너1"><p>룩세렛 서비스 1</p></div>
+                <div class="main-banner"><img src="https://ifh.cc/g/cmF4G4.png" alt="배너2"><p>룩세렛 서비스 2</p></div>
+                <div class="main-banner"><img src="https://ifh.cc/g/cmF4G4.png" alt="배너3"><p>룩세렛 서비스 3</p></div>
+                <div class="main-banner"><img src="https://ifh.cc/g/cmF4G4.png" alt="배너4"><p>룩세렛 서비스 4</p></div>
+            </div>
+        </div>
 
     <!-- 하단배너 -->         
         <section class="section cta-section">
