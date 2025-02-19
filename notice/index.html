@@ -103,60 +103,56 @@
                     <button class="play-pause" onclick="togglePlayPause()">Ⅱ</button>
                 </div>
             </div>
-            
-
+        </head>
+        <body>
             <div id="notice">
                 <div class="section wf-section">
                     <div class="container w-container">
-                        <h2 class="font-align-center no-top-margin">공지사항 📢</h2>
-                        <div class="container1">
-
-                            <a href="https://luxeret-news.notion.site/1924acc108f080fe99bac103c56d4ef2" class="button1">
-                                아이디어톤 개최 안내
-                                <span class="arrow">➡️</span>
-                            </a>
-
-                            <a href="https://luxeret-news.notion.site/0-1884acc108f0806fb3b0c4d09b18d7ca" class="button1">
-                                개인정보처리방침 변경 안내
-                                <span class="arrow">➡️</span>
-                            </a>
-
-                            <a href="https://luxeret-news.notion.site/0-1884acc108f08049bbf0e30dd23cd70d" class="button1">
-                                계정 패널 출시
-                                <span class="arrow">➡️</span>
-                            </a>
-
-                            <a href="https://luxeret-news.notion.site/2-16c4acc108f080c8b71ee7cc4f0acbc2" class="button1">
-                                리턴 인수
-                                <span class="arrow">➡️</span>
-                            </a>
-
-                            <a href="https://luxeret-news.notion.site/0-1624acc108f080a7b74cc72a40413a0e" class="button1">
-                                웹핀 서비스 출시
-                                <span class="arrow">➡️</span>
-                            </a>
-
-                            <a href="https://luxeret-news.notion.site/0-1564acc108f0800986f0e3e34518b058" class="button1">
-                                크리스마스 이벤트
-                                <span class="arrow">➡️</span>
-                            </a>
-
-                            <a href="https://luxeret-news.notion.site/0-1524acc108f080a0a172ce983e58771f" class="button1">
-                                로그인 기능 추가 안내
-                                <span class="arrow">➡️</span>
-                            </a>
-
-                            <a href="https://luxeret-news.notion.site/0-afd6d7fd6c8844809e2ff2ebadd1b42a" class="button1">
-                                추석 빙고 이벤트
-                                <span class="arrow">➡️</span>
-                            </a>
-                    
-                            <div class="pagination">
-                                <div>1</div>
-                            </div>
+                        <h2 class="font-align-center no-top-margin">공지사항</h2>
+                        <div class="container1" id="noticeContainer">
+                            <!-- 공지 리스트 -->
                         </div>
-                    </body>
-                    </html>
+                        <div class="pagination">
+                            <div onclick="loadNotices(1)">1</div>
+                            <div onclick="loadNotices(2)">2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                const notices = {
+                    1: [
+                        { text: "아이디어톤 개최 안내", link: "https://luxeret-news.notion.site/1924acc108f080fe99bac103c56d4ef2" },
+                        { text: "개인정보처리방침 변경 안내", link: "https://luxeret-news.notion.site/0-1884acc108f0806fb3b0c4d09b18d7ca" },
+                        { text: "계정 패널 출시", link: "https://luxeret-news.notion.site/0-1884acc108f08049bbf0e30dd23cd70d" },
+                        { text: "리턴 인수", link: "https://luxeret-news.notion.site/2-16c4acc108f080c8b71ee7cc4f0acbc2" },
+                    ],
+                    2: [
+                        { text: "웹핀 서비스 출시", link: "https://luxeret-news.notion.site/1624acc108f080a7b74cc72a40413a0e" },
+                        { text: "[종료] 크리스마스 이벤트", link: "https://luxeret-news.notion.site/1564acc108f0800986f0e3e34518b058" },
+                        { text: "로그인 기능 추가 안내", link: "hhttps://luxeret-news.notion.site/0-1524acc108f080a0a172ce983e58771f" },
+                        { text: "[종료] 추석 빙고 이벤트", link: "hhttps://luxeret-news.notion.site/afd6d7fd6c8844809e2ff2ebadd1b42a" },
+
+                    ]
+                };
+        
+                function loadNotices(page) {
+                    const container = document.getElementById("noticeContainer");
+                    container.innerHTML = "";
+                    
+                    notices[page].forEach(notice => {
+                        const a = document.createElement("a");
+                        a.href = notice.link;
+                        a.className = "button1";
+                        a.innerHTML = `${notice.text} <span class="arrow">➡️</span>`;
+                        container.appendChild(a);
+                    });
+                }
+        
+                // 첫 페이지 기본 로드
+                loadNotices(1);
+            </script>
                         
                 
                         </div>
