@@ -2199,146 +2199,8 @@ a {
     background: #fff;
 }
 
-
-
-
-
-
-
-
-
-
-
-/* 푸터 스타일 */
-.footer {
-  padding: 20px;
-  background-color: #191f28;
-  font-size: 14px;
-  text-align: center;
-  word-wrap: break-word;
-  font-family: Pretendard-Regular;
-}
-
-.footer .info, .footer .copyright, .footer .links {
-  margin-bottom: 10px;
-  color: #ffffff;
-  font-family: Pretendard-Light;
-}
-
-.footer .info span {
-  display: inline-block;
-  margin-right: 10px;
-  color: #ffffff;
-  margin-bottom: 5px;
-  
-}
-
-.footer .a{
-color: #ffffff;
-}
-
-.footer .links {
-  display: flex;
-  justify-content: center; /* 가운데 정렬 */
-  align-items: center; /* 수직 정렬 */
-  flex-wrap: wrap; /* 줄바꿈 처리 */
-  color: #ffffff;
-}
-
-.footer .links a {
-  display: inline-block;
-  margin: 5px;
-  text-decoration: none;
-  color: #b0b8c1;
-  font-size: 14px;
-}
-
-/* 패밀리 사이트 스타일 */
-.family-site {
-  position: relative;
-  display: inline-block;
-  margin-left: 10px; 
-}
-
-.family-btn {
-  background-color: #444;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-  vertical-align: middle;
-  font-family: Pretendard-Regular;
-}
-
-.family-btn:hover {
-  background-color: #666;
-}
-
-.family-dropdown {
-  display: none;
-  position: absolute;
-  bottom: 40px; /* 위로 펼치기 위해 bottom 속성 사용 */
-  list-style-type: none;
-  padding: 0;
-  border-radius: 10px;
-  background-color: #f0f0f0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-height: 150px;
-  overflow-y: auto;
-  text-align: left;
-  width: 200px;
-  z-index: 1000;
-}
-
-
-.family-dropdown li {
-  margin: 0;
-}
-
-.family-dropdown a {
-  display: block;
-  padding: 10px 20px;
-  color: #000000;
-  text-decoration: none;
-  border-bottom: 1px solid #ddd;
-  white-space: nowrap;
-}
-
-.family-dropdown a:hover {
-  background-color: #e0e0e0;
-}
-
-/* 모바일에서는 family-site 버튼 숨김 */
-@media (max-width: 768px) {
-  .family-site {
-      display: none; /* 모바일에서 FAMILY SITE 숨김 */
-  }
-}
-
-/* 드롭다운 활성화 */
-.show-dropdown {
-  display: block;
-}
-
-.business-check {
-  display: inline-block;
-  background-color: #444;
-  color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 8px; /* 둥근 모서리 */
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.business-check:hover {
-  background-color: #666;
-}
-
 button:focus, a:focus {
-  outline: 2px dashed #fdfdfd; /* 검정 점선 테두리 */
+  outline: 2px dashed #fdfdfd; 
 }
 
 *:focus {
@@ -2434,3 +2296,112 @@ button:focus, a:focus {
     display: none;
   }
 }
+
+.footer {
+  padding: 20px;
+  background-color: #191f28;
+  font-size: 14px;
+  text-align: center;
+  font-family: Pretendard-Regular;
+  color: #ffffff;
+}
+
+.toggle-btn {
+  background-color: #2a2f3b;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s;
+  width: 200px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+
+.info {
+  display: none;
+  margin-top: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-align: left;
+  max-width: 500px;
+  margin: 10px auto;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+.copyright {
+  margin-bottom: 20px;
+}
+
+.info-section {
+  margin-top: 20px;
+}
+
+
+.links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.links a {
+  margin: 5px;
+  text-decoration: none;
+  color: #b0b8c1;
+  font-size: 14px;
+}
+
+.family-site {
+  position: relative;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.family-dropdown {
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  list-style: none;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 210px;
+  z-index: 1000;
+  font-size: 15px;
+}
+
+.family-dropdown li {
+  padding: 5px 0;
+}
+
+.family-dropdown a {
+  display: block;
+  padding: 8px 15px;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.family-dropdown a:hover {
+  background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .family-site {
+      display: none;
+  }
+}
+
+.show {
+  display: block;
+}
+

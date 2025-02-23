@@ -642,20 +642,6 @@
   );
   
 
-    
-    
-    function toggleDropdown() {
-      var dropdown = document.querySelector('.family-dropdown');
-      var btn = document.querySelector('.family-btn');
-    
-      if (dropdown.classList.contains('show-dropdown')) {
-          dropdown.classList.remove('show-dropdown');
-          btn.innerHTML = '패밀리 사이트 ▲';
-      } else {
-          dropdown.classList.add('show-dropdown');
-          btn.innerHTML = '패밀리 사이트 ▼';
-      }
-    }
 
     // 로그인 성공 후 사용자 정보 처리 예시
 signInWithPopup(auth, provider)
