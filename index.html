@@ -200,8 +200,8 @@ setInterval(() => {
                         </div>
                     </a>
                 </div>
-                <div data-poster-url="#" class="services-video is-1 w-background-video w-background-video-atom">
-                    <img src="/assets/image/services (3).png" alt="Video Thumbnail" style="width:100%; height:auto;">
+                <div data-poster-url="#" class="services-video is-1 w-background-video w-background-video-atom dark-filter">
+                    <img src="/assets/image/services (3).png" alt="룩세렛 서비스 로고" style="width:100%; height:auto;">
                 </div>
             </div>
             <div class="service">
@@ -221,8 +221,8 @@ setInterval(() => {
                         </div>
                     </a>
                 </div>
-                <div data-poster-url="#" class="services-video is-1 w-background-video w-background-video-atom">
-                    <img src="/assets/image/services (2).png" alt="Video Thumbnail" style="width:100%; height:auto;">
+                <div data-poster-url="#" class="services-video is-1 w-background-video w-background-video-atom dark-filter"> 
+                    <img src="/assets/image/services (2).png" alt="룩세렛 서비스 로고" style="width:100%; height:auto;">
                 </div>
             </div>
             <div id="services" class="service is-3">
@@ -243,7 +243,7 @@ setInterval(() => {
                     </a>
                 </div>
                 <div data-poster-url="#" class="services-video is-1 w-background-video w-background-video-atom">
-                    <img src="/assets/image/services (4).png" alt="Video Thumbnail" style="width:100%; height:auto;">
+                    <img src="/assets/image/services (4).png" alt="룩세렛 서비스 로고" style="width:100%; height:auto;">
                 </div>
             </div>
 
@@ -265,7 +265,7 @@ setInterval(() => {
                     </a>
                 </div>
                 <div data-poster-url="#" class="services-video is-1 w-background-video w-background-video-atom">
-                    <img src="/assets/image/services (1).png" alt="Video Thumbnail" style="width:100%; height:auto;">
+                    <img src="/assets/image/services (1).png" alt="룩세렛 서비스 로고" style="width:100%; height:auto;">
                 </div>
             </div>
         </div>
@@ -489,7 +489,66 @@ function toggleDropdown() {
 }
 </script>
     
-    
+
+    <div class="settings-container">
+        <button id="settings-btn">⚙️</button>
+        <div class="theme-menu" id="theme-menu">
+            <p class="menu-title">테마 설정</p>
+            <button class="theme-option" data-theme="light">☀️ 라이트 모드</button>
+            <button class="theme-option" data-theme="dark">🌙 다크 모드</button>
+            <button class="theme-option" data-theme="system">🖥️ 기기 설정</button>
+            <hr>
+            <p class="menu-title">기타 설정</p>
+            <button id="reset-btn">🔄 초기화</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  const settingsBtn = document.getElementById("settings-btn");
+  const themeMenu = document.getElementById("theme-menu");
+  const themeOptions = document.querySelectorAll(".theme-option");
+
+  // 설정 버튼 클릭 시 메뉴 토글
+  settingsBtn.addEventListener("click", () => {
+      themeMenu.style.display = themeMenu.style.display === "block" ? "none" : "block";
+  });
+
+  // 테마 변경 함수
+  function applyTheme(theme) {
+      if (theme === "light") {
+          document.body.classList.add("light-theme");
+          document.body.classList.remove("dark-theme");
+      } else if (theme === "dark") {
+          document.body.classList.add("dark-theme");
+          document.body.classList.remove("light-theme");
+      } else {
+          // 기기 설정 (OS 테마 적용)
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              document.body.classList.add("dark-theme");
+              document.body.classList.remove("light-theme");
+          } else {
+              document.body.classList.add("light-theme");
+              document.body.classList.remove("dark-theme");
+          }
+      }
+      localStorage.setItem("theme", theme);
+  }
+
+  // 테마 버튼 클릭 이벤트
+  themeOptions.forEach(button => {
+      button.addEventListener("click", () => {
+          const selectedTheme = button.getAttribute("data-theme");
+          applyTheme(selectedTheme);
+          themeMenu.style.display = "none";
+      });
+  });
+
+  // 페이지 로드 시 저장된 테마 적용
+  const savedTheme = localStorage.getItem("theme") || "system";
+  applyTheme(savedTheme);
+});
+
+    </script>
 
 <script>
 (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
