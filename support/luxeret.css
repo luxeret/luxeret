@@ -675,7 +675,7 @@ body {
 
 #settings-btn {
   background: #000000;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   width: 55px;
   height: 55px;
@@ -684,6 +684,9 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #settings-btn:hover {

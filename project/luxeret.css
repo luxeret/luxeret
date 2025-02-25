@@ -569,6 +569,60 @@ html {
 
 
 
+.page-wrapper {
+  display: block; /* 기본적으로 페이지 내용이 보이도록 */
+}
+
+.mobile_popup {
+  display: none; /* 기본적으로 모바일 팝업은 숨김 */
+}
+
+/* 모바일 환경에서 하단 고정 팝업 보이기 */
+@media screen and (max-width: 768px) {
+  .page-wrapper {
+    display: none;
+  }
+
+  .mobile_popup {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #dfdfdf;
+    padding: 10px;
+    border-top: 2px solid #c0c0c0;
+    border-radius: 10px 10px 0 0;
+    z-index: 9999;
+  }
+
+  .menu_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .menu_item svg {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+  }
+
+  .menu_item span {
+    font-size: 12px;
+  }
+
+  .menu_item:hover {
+    opacity: 0.8;
+  }
+}
+
 /* 태블릿(가로 및 세로 방향 모두 포함) */
 @media screen and (min-width: 768px) and (max-width: 1280px) {
   .page-wrapper {
@@ -717,7 +771,7 @@ body {
 
 #settings-btn {
   background: #000000;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   width: 55px;
   height: 55px;
@@ -726,6 +780,9 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #settings-btn:hover {
