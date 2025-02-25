@@ -456,7 +456,7 @@
     margin: 80px auto; /* 섹션 전체를 아래로 내림 */
     padding: 20px;
     border-radius: 8px;
-    background: white;
+
     text-align: center;
   }
   .emoji {
@@ -639,22 +639,9 @@ body {
   color: white;
 }
 
-.dark-theme .blog-card-read-time,
-.dark-theme .blog-card-title,
-.dark-theme .blog-item-card-summary {
-  color: inherit; /* 다크 모드에서도 원래 색상을 유지 */
-}
-
-/* button-mask 텍스트 색상 흰색 */
-.dark-theme .button-mask {
-  color: white;
-}
-.dark-theme .service-button {
+.dark-theme .faq-item {
   border: .075em solid #3f3f3f;
-  border-radius: 1.25em;
-  padding: 1.1em 2em;
-  font-size: .5em;
-  transition: transform .2s;
+  background: #383838;
 }
 
 .dark-theme .service {
@@ -785,6 +772,6 @@ hr {
 .dark-theme .service-button-arrow {
   filter: brightness(0) invert(1);
 }
-.dark-theme .dark-filter img {
+.dark-theme .emoji {
   filter: brightness(0) invert(1);
 }
