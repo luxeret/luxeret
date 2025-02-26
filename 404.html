@@ -86,6 +86,19 @@
             src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot);
             src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf) format("truetype");
         }
+
+        button:focus, a:focus {
+  outline: 2px dashed #5dbcea; 
+}
+
+*:focus {
+  outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
+}
+
+::selection {
+  background-color: #5dbcea;
+  color: white;
+}
     </style>
 </head>
 <body>

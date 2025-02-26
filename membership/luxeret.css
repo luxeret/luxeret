@@ -105,8 +105,9 @@
     cursor: pointer;
     border: none;
     font-family: 'Pretendard-Bold';
-    width: 100%;
+    width: 90%;
     text-align: center;
+    text-decoration: none;
   }
 
   .membership-box .select-button:hover {
@@ -178,7 +179,7 @@
 
   .footer {
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 20px;
   }
 
@@ -247,4 +248,19 @@
       font-size: 16px;
       padding: 12px;
     }
+  }
+
+
+
+  button:focus, a:focus {
+    outline: 2px dashed #5dbcea; 
+  }
+  
+  *:focus {
+    outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
+  }
+  
+  ::selection {
+    background-color: #5dbcea;
+    color: white;
   }

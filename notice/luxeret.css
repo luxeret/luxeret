@@ -872,3 +872,20 @@ hr {
 .dark-theme .dark-filter img {
   filter: brightness(0) invert(1);
 }
+
+
+
+
+
+button:focus, a:focus {
+  outline: 2px dashed #5dbcea; 
+}
+
+*:focus {
+  outline: 2px dashed #000000; /* 모든 포커스된 요소에 검정 점선 테두리 */
+}
+
+::selection {
+  background-color: #5dbcea;
+  color: white;
+}
